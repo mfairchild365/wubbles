@@ -13,15 +13,6 @@ class Wub_Success
     {
         if (isset($_GET['for'])) {
             switch ($_GET['for']) {
-                 case "campaignInviteRequest":
-                    $this->message = "The request has been sent!";
-                    break;
-                 case "invite":
-                    $this->message = "The invite has been edited!";
-                    break;
-                case "characterActivate":
-                    $this->message = "The character has been activated!";
-                    break;
                 case "login":
                     $this->message = "You have been logged in!  Please click continue if you are not redirected.";
                     $options['continueURL'] = Wub_Controller::$url . "home";
