@@ -4,3 +4,4 @@
 /.htaccess
 /www/.htaccess
 /.buildpath
+/config.inc.php
