@@ -15,8 +15,6 @@ class Wub_Account extends Wub_Record
     
     public $role;
     
-    public $default_character;
-    
     public static function getByID($id)
     {
         return self::getByAnyField('Wub_Account', 'id', (int)$id);
@@ -49,25 +47,5 @@ class Wub_Account extends Wub_Record
         }
         
         return false;
-    }
-    
-    function getAllCampaigns($options = array())
-    {
-        return Wub_Campaign_List::getAllForAccount($this->id, $options);
-    }
-    
-    function getOwnedCampaigns($options = array())
-    {
-        return Wub_Campaign_List::getByAccount($this->id, $options);
-    }
-    
-    function getAllToInvites($options = array())
-    {
-        return Wub_Campaign_Invite_List::getAllToAccount($this->id, $options);
-    }
-    
-    function getAllFromInvites($options = array())
-    {
-        return Wub_Campaign_Invite_List::getAllFromAccount($this->id, $options);
     }
 }
