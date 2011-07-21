@@ -10,10 +10,12 @@ $routes['/^login$/i'] = 'Wub_Account_Login';
 //Logout
 $routes['/^logout$/i'] = 'Wub_Account_Logout';
 
-//Logout
+//Register
 $routes['/^register$/i'] = 'Wub_Account_Register';
 
-//Logout
+//Success
 $routes['/^success$/i'] = 'Wub_Success';
+
+$routes['/^memory\/((?<id>[\d]+)\/)?edit$/i'] = 'Wub_Memory_Edit';
 
 return $routes;

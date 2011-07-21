@@ -20,6 +20,32 @@ CREATE  TABLE IF NOT EXISTS `wubbles`.`accounts` (
 ENGINE = InnoDB;
 
 
+-- -----------------------------------------------------
+-- Table `wubbles`.`memories`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `wubbles`.`memories` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `date_created` INT NULL ,
+  `date_edited` INT NULL ,
+  `owner_id` INT NULL ,
+  `subject` VARCHAR(100) NULL ,
+  `details` LONGTEXT NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `wubbles`.`shared_memory`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `wubbles`.`shared_memory` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `wubble_id` INT NULL ,
+  `date_created` INT NULL ,
+  `account_id` INT NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
+
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
