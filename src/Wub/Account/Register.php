@@ -13,6 +13,15 @@ class Wub_Account_Register extends Wub_Account
             throw new Exception("Passwords do not match");
         }
         
+        if (!isset($_POST['firstname']) || empty($_POST['firstname'])) {
+            throw new Exception("You must filld out your name");
+        }
+        
+        if (!isset($_POST['lastname']) || empty($_POST['lastname'])) {
+            throw new Exception("You must filld out your name");
+        }
+        
+        
         if (!isset($_POST['email'], $_POST['password'], $_POST['username'])) {
             throw new Exception("You did not fill in all of the fields.  :(");
         }
@@ -36,6 +45,6 @@ class Wub_Account_Register extends Wub_Account
             throw new Exception("There was an error while creating your account.");
         }
         
-        Wub_Controller::redirect('register?respose=sucess');
+        Wub_Controller::redirect(Wub_Controller::$url . 'success?for=registration');
     }
 }

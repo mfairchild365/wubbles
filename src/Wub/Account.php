@@ -15,6 +15,10 @@ class Wub_Account extends Wub_Record
     
     public $role;
     
+    public $firstname;
+    
+    public $lastname;
+    
     public static function getByID($id)
     {
         return self::getByAnyField('Wub_Account', 'id', (int)$id);

@@ -1,6 +1,8 @@
 <form class='ajaxform' name="input" action="<?php echo Wub_Controller::$url; ?>register" method="post">
     <fieldset>
     <legend>Register</legend>
+        <p>First Name: <br /><input type="text" name="firstname" /></p>
+        <p>Last Name: <br /><input type="text" name="lastname" /></p>
         <p>email: <br /><input type="text" name="email" /></p>
         <p>retype email: <br /><input type="text" name="email2" /></p>
         <p>username: <br /><input type="text" name="username" /></p>

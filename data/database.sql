@@ -16,6 +16,8 @@ CREATE  TABLE IF NOT EXISTS `wubbles`.`accounts` (
   `password` VARCHAR(100) NULL ,
   `activated` INT NULL ,
   `role` VARCHAR(45) NULL ,
+  `firstname` VARCHAR(100) NULL ,
+  `lastname` VARCHAR(45) NULL ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
 
