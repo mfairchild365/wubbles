@@ -1,2 +1,15 @@
 <h3><?php echo $context->getFullName();?></h3>
-<a href=''>Send a friend request</a>
+<?php 
+if (Wub_Controller::getAccount() && $context->id != Wub_Controller::getAccount()->id) {
+    if (!$friendship = Wub_Friendship::getFriendship(Wub_Controller::getAccount()->id, $context->id)) {
+        echo "<a href='" . $context->getURL() . "request/send'>Send a friend request</a>";
+    } else if ($friendship->status == 'sent') {
+        if ($friendship->reciever_id == Wub_Controller::getAccount()->id) {
+            echo "Accept or Reject the friendship request";
+        } else {
+            echo "Your friendship is pending";
+        }
+    }
+    
+}
+?>
