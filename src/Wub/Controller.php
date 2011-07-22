@@ -142,8 +142,8 @@ class Wub_Controller
      */
     function handleAction()
     {
-        if (isset($this->view_map[$this->options['view']])) {
-            $class = new $this->view_map[$this->options['view']]($this->options);
+        if (isset($this->options['model'])) {
+            $class = new $this->options['model']($this->options);
         } else {
             throw new Exception('Un-registered view');
         }
