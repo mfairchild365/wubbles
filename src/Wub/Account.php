@@ -71,4 +71,9 @@ class Wub_Account extends Wub_Editable
         
         return Wub_Controller::$url . "account/".$id."edit";
     }
+    
+    public function getFullName()
+    {
+        return ucwords(trim($this->firstname) . ' ' .  trim($this->lastname));
+    }
 }
