@@ -41,6 +41,8 @@ class Wub_Success
                         $this->message = "You account has been saved!";
                     }
                     break;
+                case "friendship_sent":
+                    $this->message = "Your friendship request has been sent!";
                 default:
                     break;
             }
