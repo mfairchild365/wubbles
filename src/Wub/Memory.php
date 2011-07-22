@@ -5,6 +5,8 @@ class Wub_Memory extends Wub_Editable
     
     public $details;
     
+    public $permission;
+    
     function __construct($options = array())
     {
         parent::__construct($options);

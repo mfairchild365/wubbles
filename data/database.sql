@@ -34,6 +34,7 @@ CREATE  TABLE IF NOT EXISTS `wubbles`.`memories` (
   `owner_id` INT NULL ,
   `subject` VARCHAR(100) NULL ,
   `details` LONGTEXT NULL ,
+  `permission` VARCHAR(45) NULL ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
 
