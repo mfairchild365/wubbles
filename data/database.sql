@@ -44,6 +44,21 @@ CREATE  TABLE IF NOT EXISTS `wubbles`.`shared_memory` (
   `wubble_id` INT NULL ,
   `date_created` INT NULL ,
   `account_id` INT NULL ,
+  `permission` VARCHAR(45) NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `wubbles`.`friends`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `wubbles`.`friends` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `sender_id` INT NULL ,
+  `reciever_id` INT NULL ,
+  `date_sent` INT NULL ,
+  `status` VARCHAR(45) NULL ,
+  `date_edited` INT NULL ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
 
