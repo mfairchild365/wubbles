@@ -43,7 +43,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `wubbles`.`shared_memory` (
   `id` INT NOT NULL AUTO_INCREMENT ,
-  `wubble_id` INT NULL ,
+  `memory_id` INT NULL ,
   `date_created` INT NULL ,
   `account_id` INT NULL ,
   `permission` VARCHAR(45) NULL ,
