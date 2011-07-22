@@ -20,4 +20,6 @@ $routes['/^mymemories$/i'] = 'Wub_Memory_MyMemories';
 
 $routes['/^memory\/((?<id>[\d]+)\/)?edit$/i'] = 'Wub_Memory_Edit';
 
+$routes['/^memory\/(?<id>[\d]+)$/i'] = 'Wub_Memory_View';
+
 return $routes;
