@@ -32,6 +32,16 @@ class Wub_SharedMemory extends Wub_Editable
         return 'Shared Memory';
     }
     
+    public function getEditURL()
+    {
+        $id = "";
+        if (isset($this->id)) {
+            $id = $this->id . "/";
+        }
+        
+        return Wub_Memory::getByID($this->memory_id)->getURL() . "/share/".$id."edit";
+    }
+    
     public static function getByAccountaAndMemory($account_id, $memory_id)
     {
         $mysqli = Wub_Controller::getDB();

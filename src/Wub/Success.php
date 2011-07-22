@@ -50,6 +50,9 @@ class Wub_Success
                 case "friendship_rejected":
                     $this->message = "The request has been rejected!";
                     break;
+                case "shared_memory":
+                    $this->message = "Your memory has been shared!";
+                    break;
                 default:
                     $this->message = "There was a success for something!  dunno what...";
                     break;

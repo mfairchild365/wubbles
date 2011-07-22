@@ -65,11 +65,20 @@ class Wub_Account extends Wub_Editable
     public function getEditURL()
     {
         $id = "";
-        if (isset($this->id)) {
+        if (empty($this->id)) {
             $id = $this->id . "/";
         }
         
         return Wub_Controller::$url . "account/".$id."edit";
+    }
+    
+    function getFriendsListURl()
+    {
+        if(empty($this->id)) {
+            return false;
+        }
+        
+        return $this->getURL() . "/friends";
     }
     
     public function getFullName()

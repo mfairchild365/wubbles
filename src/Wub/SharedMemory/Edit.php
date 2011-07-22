@@ -3,8 +3,14 @@ class Wub_SharedMemory_Edit extends Wub_SharedMemory
 {
     function __construct($options = array())
     {
+        if (!isset($options['memory_id'])) {
+            throw new Exception("You must select a memory!");
+        }
+        
+        $this->memory_id = $options['memory_id'];
+        
         if (!$memory = Wub_Memory::getByID($options['memory_id'])) {
-            throw new exception("Could not find that memory!");
+            throw new Exception("Could not find that memory!");
         }
         
         if ($memory->owner_id != Wub_Controller::getAccount()->id) {
@@ -37,10 +43,11 @@ class Wub_SharedMemory_Edit extends Wub_SharedMemory
             throw new Exception("You do not have permission to share this.");
         }
         
-        if (!empty($this->id) && $shared = self::getByAccountaAndMemory($_POST['account_id'], $_POST['memory_id'])) {
+        $shared = Wub_SharedMemory::getByAccountaAndMemory($_POST['account_id'], $_POST['memory_id']);
+        
+        if (empty($this->id) && $shared) {
             throw new Exception("A record already exists for this!");
         }
-        
         
         parent::handlePost($options);
     }
