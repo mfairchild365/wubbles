@@ -6,7 +6,7 @@ class Wub_Memory_Edit extends Wub_Memory
         parent::__construct($options);
     }
     
-    function handlePost()
+    function handlePost($options = array())
     {
         //Make sure everything is filled out.
         if (!isset($_POST['subject']) || empty($_POST['subject'])) {

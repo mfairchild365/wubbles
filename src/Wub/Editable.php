@@ -57,10 +57,8 @@ abstract class Wub_Editable extends Wub_Record
             throw new Exception("Id was changed in POST, record not saved.");
         }
         
-        //set the date_created if not set.
-        if (isset($this->date_edited) && empty($this->date_edited)) {
-            $this->date_edited = time();
-        }
+        $this->date_edited = time();
+        
         
         //set the owner if not set.
         if (isset($this->owner_id) && empty($this->owner_id)) {
