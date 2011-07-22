@@ -1,11 +1,7 @@
 <?php
-class Wub_Account extends Wub_Record
+class Wub_Account extends Wub_Editable
 {
-    public $id;
-    
     public $email;
-    
-    public $date_created;
     
     public $username;
     
@@ -56,5 +52,23 @@ class Wub_Account extends Wub_Record
     function getMemories($options = array())
     {
         return Wub_Memory_List::getAllByAccount($this->id, $options);
+    }
+    
+    public function getURL()
+    {
+        if (isset($this->id)) {
+            return Wub_Controller::$url . "account/" . $this->id;
+        }
+        return false;
+    }
+    
+    public function getEditURL()
+    {
+        $id = "";
+        if (isset($this->id)) {
+            $id = $this->id . "/";
+        }
+        
+        return Wub_Controller::$url . "account/".$id."edit";
     }
 }
