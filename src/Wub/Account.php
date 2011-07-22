@@ -52,4 +52,9 @@ class Wub_Account extends Wub_Record
         
         return false;
     }
+    
+    function getMemories($options = array())
+    {
+        return Wub_Memory_List::getAllByAccount($this->id, $options);
+    }
 }
