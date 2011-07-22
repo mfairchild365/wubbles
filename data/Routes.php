@@ -16,6 +16,8 @@ $routes['/^register$/i'] = 'Wub_Account_Register';
 //Success
 $routes['/^success$/i'] = 'Wub_Success';
 
+$routes['/^mymemories$/i'] = 'Wub_Memory_MyMemories';
+
 $routes['/^memory\/((?<id>[\d]+)\/)?edit$/i'] = 'Wub_Memory_Edit';
 
 return $routes;
