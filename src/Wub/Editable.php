@@ -93,7 +93,7 @@ abstract class Wub_Editable extends Wub_Record
             throw new Exception("There was an error saving this.");
         }
         
-        $redirectURL = Wub_Controller::$url.'success?for='.self::getTable().'&saveType=' . $saveType;
+        $redirectURL = Wub_Controller::$url.'success?for='.$this->getTable().'&saveType=' . $saveType;
         
         //check if a continue url was passed.
         if (isset($options['onCreate']['continueURL'])) {
