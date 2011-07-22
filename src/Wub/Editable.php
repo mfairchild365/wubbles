@@ -93,9 +93,7 @@ abstract class Wub_Editable extends Wub_Record
             throw new Exception("There was an error saving this.");
         }
         
-        $message = $this->getName() . " was successfuly saved!";
-        
-        $redirectURL = Wub_Controller::$url.'success?message=' . $message . '&saveType=' . $saveType;
+        $redirectURL = Wub_Controller::$url.'success?for='.self::getTable().'&saveType=' . $saveType;
         
         //check if a continue url was passed.
         if (isset($options['onCreate']['continueURL'])) {
@@ -140,6 +138,11 @@ abstract class Wub_Editable extends Wub_Record
     {
         //We are creating a new one here...
         if (!isset($this->id) || empty($this->id)) {
+            return true;
+        }
+       
+        //for accoutns.
+        if ($this->owner_id == NULL && $this->id == Wub_Controller::getAccount()->id && $this->getTable() == 'accounts') {
             return true;
         }
         
