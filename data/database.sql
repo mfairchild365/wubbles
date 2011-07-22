@@ -47,6 +47,8 @@ CREATE  TABLE IF NOT EXISTS `wubbles`.`shared_memory` (
   `date_created` INT NULL ,
   `account_id` INT NULL ,
   `permission` VARCHAR(45) NULL ,
+  `date_edited` INT NULL ,
+  `owner_id` INT NULL ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
 
