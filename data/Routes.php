@@ -26,6 +26,8 @@ $routes['/^memory\/(?<id>[\d]+)$/i'] = 'Wub_Memory_View';
 
 $routes['/^account\/(?<id>[\d]+)$/i'] = 'Wub_Account_View';
 
+$routes['/^account\/(?<account_id>[\d]+)\/friends$/i'] = 'Wub_Friendship_List';
+
 $routes['/^account\/list$/i'] = 'Wub_Account_List';
 
 $routes['/^account\/(?<id>[\d]+)\/request\/(?<type>(remove|block|send|accept|reject))$/i'] = 'Wub_Account_FriendRequest';

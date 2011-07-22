@@ -55,4 +55,19 @@ class Wub_Friendship extends Wub_Record
         return self::getByID($row['id']);
         
     }
+    
+    function getFriendForAccount($account_id)
+    {
+        $friend_id = NULL;
+        
+        if ($this->reciever_id == $account_id) {
+            $friend_id = $this->sender_id;
+        }
+        
+        if ($this->sender_id == $account_id) {
+            $friend_id = $this->reciever_id;
+        }
+        
+        return Wub_Account::getByID($friend_id);
+    }
 }
