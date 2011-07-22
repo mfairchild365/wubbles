@@ -18,14 +18,6 @@ abstract class Wub_Editable extends Wub_Record
             return;
         }
         
-        if (isset($options['model']) && substr($options['model'], -5) != '_Edit') {
-            //We are not viewing the Edit model for this class, return.
-            return;
-        }
-        
-        //We are editing... require login.
-        Wub_Controller::requireLogin();
-        
         //An Id was not passed, so we are just making a new one.
         if (!isset($options['id'])) {
             return;
@@ -36,6 +28,14 @@ abstract class Wub_Editable extends Wub_Record
         }
         
         $this->synchronizeWithArray($class->toArray());
+        
+        if (isset($options['model']) && substr($options['model'], -5) != '_Edit') {
+            //We are not viewing the Edit model for this class, return.
+            return;
+        }
+        
+        //We are editing... require login.
+        Wub_Controller::requireLogin();
         
         if (!$this->canEdit()) {
             throw new Exception("You do not have permission to edit this.");
