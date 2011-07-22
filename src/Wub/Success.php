@@ -17,9 +17,13 @@ class Wub_Success
                     $this->message = "You have been logged in!  Please click continue if you are not redirected.";
                     $options['continueURL'] = Wub_Controller::$url . "home";
                     break;
-                case "registration":
-                    $this->message = "Thank you for registering.  You will now need to log in.";
-                    $options['continueURL'] = Wub_Controller::$url . "login";
+                case "accounts":
+                    if ($this->saveType == 'create') {
+                        $this->message = "Thank you for registering.  You will now need to log in.";
+                        $this->continueURL = Wub_Controller::$url . "login";
+                    } else {
+                        $this->message = "You account has been saved!";
+                    }
                     break;
                 default:
                     break;
