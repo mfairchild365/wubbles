@@ -57,19 +57,18 @@ abstract class Wub_Editable extends Wub_Record
             throw new Exception("Id was changed in POST, record not saved.");
         }
         
-        $this->date_edited = time();
-        
-        
-        //set the owner if not set.
-        if (isset($this->owner_id) && empty($this->owner_id)) {
-            $this->owner_id = Wub_Controller::getAccount()->id;
-        }
-        
         if (!$this->canEdit()) {
             throw new Exception("You do not have permission to edit this!");
         }
         
         $this->synchronizeWithArray($_POST);
+        
+        //set the owner if not set.
+        if (empty($this->owner_id)) {
+            $this->owner_id = Wub_Controller::getAccount()->id;
+        }
+        
+        $this->date_edited = time();
         
         $saveType = 'create';
         if (isset($this->id) && !empty($this->id)) {
@@ -78,9 +77,7 @@ abstract class Wub_Editable extends Wub_Record
         
         if ($saveType == 'create') {
             //set the date_created if not set.
-            if (isset($this->date_created) && empty($this->date_created)) {
-                $this->date_created = time();
-            }
+            $this->date_created = time();
             
             if ($this->isDuplicate()) {
                 return;
