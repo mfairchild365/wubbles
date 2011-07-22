@@ -60,4 +60,46 @@ class Wub_Account_FriendRequest extends Wub_Account
         
         Wub_Controller::redirect(Wub_Controller::$url . 'success?for=friendship_sent');
     }
+    
+    function acceptFriendRequest()
+    {
+        if (!$friendship = Wub_Friendship::getFriendship(Wub_Controller::getAccount()->id, $this->id)) {
+            throw new Exception("Friend request not found.");
+        }
+        
+        if ($friendship->reciever_id != Wub_Controller::getAccount()->id) {
+            throw new Exception("You can only accept this if you are the reciever, silly.");
+        }
+        
+        if ($friendship->status != 'sent') {
+            throw new Exception("You can not accept this request");
+        }
+        
+        $friendship->status = 'accepted';
+        $friendship->date_edited = time();
+        $friendship->save();
+        
+        Wub_Controller::redirect(Wub_Controller::$url . 'success?for=friendship_accepted');
+    }
+    
+    function rejectFriendRequest()
+    {
+        if (!$friendship = Wub_Friendship::getFriendship(Wub_Controller::getAccount()->id, $this->id)) {
+            throw new Exception("Friend request not found.");
+        }
+        
+        if ($friendship->reciever_id != Wub_Controller::getAccount()->id) {
+            throw new Exception("You can only reject this if you are the reciever, silly.");
+        }
+        
+        if ($friendship->status != 'sent') {
+            throw new Exception("You can not reject this request");
+        }
+        
+        $friendship->status = 'rejected';
+        $friendship->date_edited = time();
+        $friendship->save();
+        
+        Wub_Controller::redirect(Wub_Controller::$url . 'success?for=friendship_rejected');
+    }
 }

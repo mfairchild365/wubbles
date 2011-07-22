@@ -43,7 +43,15 @@ class Wub_Success
                     break;
                 case "friendship_sent":
                     $this->message = "Your friendship request has been sent!";
+                    break;
+                case "friendship_accepted":
+                    $this->message = "The request has been accepted!";
+                    break;
+                case "friendship_rejected":
+                    $this->message = "The request has been rejected!";
+                    break;
                 default:
+                    $this->message = "There was a success for something!  dunno what...";
                     break;
             }
         }
