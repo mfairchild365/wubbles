@@ -1,8 +1,8 @@
-Account List
+<h3>Account List</h3>
 <ol>
     <?php 
     foreach($context as $account) {
-        echo "<li>" . $account->username . "</li>";
+        echo "<li><a href='" . $account->getURL() ."'>" . $account->getFullName() . "</a></li>";
     }
     ?>
 </ol>
