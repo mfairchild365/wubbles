@@ -11,7 +11,9 @@ $routes['/^login$/i'] = 'Wub_Account_Login';
 $routes['/^logout$/i'] = 'Wub_Account_Logout';
 
 //Register
-$routes['/^register$/i'] = 'Wub_Account_Register';
+$routes['/^register$/i'] = 'Wub_Account_Edit';
+
+$routes['/^account\/((?<id>[\d]+)\/)?edit$/i'] = 'Wub_Account_Edit';
 
 //Success
 $routes['/^success$/i'] = 'Wub_Success';
@@ -21,5 +23,8 @@ $routes['/^mymemories$/i'] = 'Wub_Memory_MyMemories';
 $routes['/^memory\/((?<id>[\d]+)\/)?edit$/i'] = 'Wub_Memory_Edit';
 
 $routes['/^memory\/(?<id>[\d]+)$/i'] = 'Wub_Memory_View';
+
+$routes['/^account\/(?<id>[\d]+)$/i'] = 'Wub_Account_View';
+
 
 return $routes;
