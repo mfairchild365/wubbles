@@ -11,6 +11,22 @@ class Wub_Success
     
     function __construct($options = array())
     {
+        if (isset($_GET['message'])) {
+            $this->message = $_GET['message'];
+        }
+        
+        if (isset($options['continueURL'])) {
+            $this->continueURL = $options['continueURL'];
+        }
+        
+        if (isset($options['saveType'])) {
+            $this->saveType = $options['saveType'];
+        }
+        
+        if (isset($options['ajaxredirect'])) {
+            $this->ajaxRedirect = $options['ajaxredirect'];
+        }
+        
         if (isset($_GET['for'])) {
             switch ($_GET['for']) {
                 case "login":
@@ -28,22 +44,6 @@ class Wub_Success
                 default:
                     break;
             }
-        }
-        
-        if (isset($_GET['message'])) {
-            $this->message = $_GET['message'];
-        }
-        
-        if (isset($options['continueURL'])) {
-            $this->continueURL = $options['continueURL'];
-        }
-        
-        if (isset($options['saveType'])) {
-            $this->saveType = $options['saveType'];
-        }
-        
-        if (isset($options['ajaxredirect'])) {
-            $this->ajaxRedirect = $options['ajaxredirect'];
         }
     }
 }
