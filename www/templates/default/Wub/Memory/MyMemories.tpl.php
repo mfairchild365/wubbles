@@ -2,7 +2,7 @@
 <ul>
     <?php 
     foreach ($context as $memory) {
-        echo "<li><a href='".$memory->getURL().""'>".$memory->subject."</a></li>";
+        echo "<li><a href='".$memory->getURL()."'>".$memory->subject."</a></li>";
     }
     ?>
 </ul>
