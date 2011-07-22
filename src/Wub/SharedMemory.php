@@ -32,6 +32,10 @@ class Wub_SharedMemory extends Wub_Editable
         return 'Shared Memory';
     }
     
+    function getMemory() {
+        return Wub_Memory::getByID($this->memory_id);
+    }
+    
     public function getEditURL()
     {
         $id = "";
