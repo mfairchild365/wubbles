@@ -10,6 +10,18 @@ if (Wub_Controller::getAccount() && $context->id != Wub_Controller::getAccount()
             echo "Your friendship is pending";
         }
     }
-    
 }
 ?>
+<div class='sharedMemories'>
+    <h4>Memories shared with you:</h4>
+    <ul>
+        <?php 
+        if (Wub_Controller::getAccount()) {
+            foreach (Wub_SharedMemory_List::getByAccountAndOwner(Wub_Controller::getAccount()->id, $context->id) as $sharedMemory) {
+                $memory = $sharedMemory->getMemory();
+                echo "<li><a href='" . $memory->getURL() . "'>" . $memory->subject . "</a></li>";
+            }
+        }
+        ?>
+    </ul>
+</div>
