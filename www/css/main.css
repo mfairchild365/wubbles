@@ -53,6 +53,28 @@ top:5px;
     min-height:500px;
 }
 
+
+.options {
+    width: 98%;
+    padding: 10px;
+    height: 20px;
+    background: #D8D8D8;
+    border-style:solid;
+    border-width:1px;
+}
+
+.button {
+    padding: 3px;
+    margin: 5px;
+    color: black;
+    background: #D8D8D8;
+    border: 2px solid #686868;
+}
+
+.button:hover {
+    border: 2px solid red;
+}
+
 /*FORMS*/
 .ajaxForm label {
     display: block;

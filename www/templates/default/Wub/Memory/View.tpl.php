@@ -2,8 +2,9 @@
 <?php 
 if (Wub_Controller::getAccount() && Wub_Controller::getAccount()->id == $context->owner_id) {
     ?>
-    <div class='ownerOptions'>
-        <a href='<?php echo $context->getURL();?>/share/edit'>Share this memory</a>
+    <div class='options'>
+        <a href='<?php echo $context->getURL();?>/share/edit' class='button'>Share</a>
+        <a href='<?php echo $context->getEditURL();?>' class='button'>Edit</a>
     </div>
     <?php 
 }
