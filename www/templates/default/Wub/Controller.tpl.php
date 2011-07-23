@@ -104,7 +104,7 @@
         <div id="dialog-message" title="Dialog">
         </div>
         <hr />
-        footer.
+        For Amy. &lt;3. Created by Michael Fairchild
     </div>
 </body>
 </html>
