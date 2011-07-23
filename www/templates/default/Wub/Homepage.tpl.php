@@ -6,6 +6,7 @@
 Todo:
 <ul>
     <li>Add photo support (attach photos to a memory)</li>
+    <li>Email users when a memory is shared with them.</li>
     <li>Allow memories to be shared with all of your friends</li>
     <li>Allow selected friends to add to your memories.</li>
     <li>Allow people to comment on your memories</li>
