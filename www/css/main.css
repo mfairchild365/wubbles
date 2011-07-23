@@ -57,26 +57,8 @@ top:5px;
     min-height:500px;
 }
 
-.abilityPoints {
-    width:100px;
-    height:170px;
-    padding:10px;
-    padding-left:50px;
-}
-
-.nfa {
-    float:left;
-    width:50px;
-}
-
-.fa {
-    float:right;
-    width:50px;
-}
-
-
 /*FORMS*/
-label {
+.ajaxForm label {
     width: 150px;
     float: left;
     text-align: right;
@@ -85,32 +67,32 @@ label {
     color: black;
 }
 
-.submit input {
+.ajaxForm .submit input {
     margin-left: 10px;
 }
-input, textarea {
+.ajaxForm input, textarea {
     color: black;
     background: #D8D8D8;
     border: 1px solid #686868;
 }
 
-input:focus, textarea:focus{
+.ajaxForm input:focus, textarea:focus{
     border: 2px solid #B80000;
 }
 
-.submit input {
+.ajaxForm .submit input {
     color: #000;
     background: #ffa20f;
     border: 2px outset #686868;
 }
-fieldset
+.ajaxForm fieldset
 {
     background: #B0B0B0 ;
     border: 2px solid #484848;
     width: 500px
 }
 
-legend {
+.ajaxForm legend {
     color: #fff;
     background: #303030 ;
     border: 2px solid #484848;
