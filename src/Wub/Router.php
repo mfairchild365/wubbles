@@ -20,6 +20,7 @@ class Wub_Router
 
         if (empty($requestURI)) {
             // Default view/homepage
+            $options['model'] = "Wub_Homepage";
             return $options;
         }
 
