@@ -19,10 +19,7 @@ class Wub_Memory_Edit extends Wub_Memory
         
         if (!isset($_POST['permission']) || empty($_POST['permission'])) {
             throw new Exception("no permission provided");
-        } 
-        
-        $_POST['owner_id']        = $_SESSION['account_id'];
-        $_POST['date_created']    = time();
+        }
         
         parent::handlePost($options);
     }
