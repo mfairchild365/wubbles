@@ -12,12 +12,18 @@ function get_var($var, $context) {
     <fieldset>
         <legend>Create/Edit Memory</legend>
             <p>
-                <label for="name">Subject</label>
+                <label for="subject">Subject</label>
                 <input type="text" name="subject" value="<?php echo get_var('subject', $context);?>"/>
             </p>
             <p>
-                <label for="description">Details</label>
+                <label for="details">Details</label>
                 <textarea rows="15" cols="60" name="details" class="wysiwyg"><?php echo get_var('details', $context);?></textarea>
+            </p>
+            <p>
+                <label for="permission">Permission:</label>
+                <select name="permission">
+                    <option value="private">private</option>
+                </select>
             </p>
         <input type="hidden" name="id" value='<?php echo $context->id;?>'/>
         <input type="hidden" name="_class" value='<?php echo get_class($context->getRawObject()); ?>'/>

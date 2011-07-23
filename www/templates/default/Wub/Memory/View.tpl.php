@@ -9,4 +9,4 @@ if (Wub_Controller::getAccount() && Wub_Controller::getAccount()->id == $context
 }
 ?>
 <div class='memorySubject'><h4><?php echo $context->subject;?></h4></div>
-<div class='memoryDetails'><?php echo $context->details?></div>
+<div class='memoryDetails'><?php echo html_entity_decode($context->details)?></div>
