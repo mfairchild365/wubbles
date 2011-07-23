@@ -100,6 +100,7 @@
             }
             ?>
         </div>
+        <div style='clear:both'></div>
         <div id="dialog-message" title="Dialog">
         </div>
         <hr />

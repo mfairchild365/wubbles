@@ -40,7 +40,7 @@ body {
 .title {
     float:left;
     position:absolute;
-top:5px;
+    top:5px;
 }
 
 .topbar {
@@ -71,8 +71,37 @@ top:5px;
     border: 2px solid #686868;
 }
 
+.colleft {
+    height:100%;
+    width:207px;
+    float: left;
+    background: #F0F0F0;
+}
+
+.colmid {
+    min-height:100%;
+    width:600px;
+    float: left;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.colright {
+    height:100%;
+    width:207px;
+    float:left;
+}
+
 .button:hover {
     border: 2px solid red;
+}
+
+.memoryDetails {
+    //height:100%;
+    margin-left:0px;
+    width:100%;
+    border-style:solid;
+    border-width:1px;
 }
 
 /*FORMS*/
