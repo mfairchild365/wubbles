@@ -29,10 +29,6 @@ body {
     text-align: left;
 }
 
-#logindiv fieldset {
-   width:100px;
-}
-
 .userinfo {
     float:right;
     width: 250;
@@ -59,17 +55,30 @@ top:5px;
 
 /*FORMS*/
 .ajaxForm label {
-    width: 150px;
-    float: left;
-    text-align: right;
-    margin-right: 5px;
     display: block;
     color: black;
 }
 
-.ajaxForm .submit input {
-    margin-left: 10px;
+.ajaxForm ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
+
+.ajaxForm li {
+    margin-left: 5px;
+    padding:5px;
+    border-bottom-style:solid;
+    border-left-style:solid;
+    border-width:1px;
+}
+
+.ajaxForm .helper {
+    display: block;
+    color: #F8F8F8;
+    font-size: 75%
+}
+
 .ajaxForm input, textarea {
     color: black;
     background: #D8D8D8;
@@ -80,16 +89,17 @@ top:5px;
     border: 2px solid #B80000;
 }
 
-.ajaxForm .submit input {
+.ajaxForm .submit {
     color: #000;
-    background: #ffa20f;
+    float: right;
+    margin: 5px;
     border: 2px outset #686868;
 }
-.ajaxForm fieldset
-{
+
+.ajaxForm fieldset {
     background: #B0B0B0 ;
     border: 2px solid #484848;
-    width: 500px
+    width: 90%;
 }
 
 .ajaxForm legend {
