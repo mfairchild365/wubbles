@@ -3,10 +3,16 @@
 <title>Wubbles</title>
 <link type="text/css" href="<?php echo Wub_Controller::$url?>www/css/main.css" rel="stylesheet" />
 <link type="text/css" href="<?php echo Wub_Controller::$url?>www/css/dot-luv/jquery-ui-1.8.12.custom.css" rel="stylesheet" />
+<link type="text/css" href="<?php echo Wub_Controller::$url?>www/css/jquery.wysiwyg.css" rel="stylesheet" />
 <script type="text/javascript" src="<?php echo Wub_Controller::$url?>www/js/jquery-1.6.min.js"></script>
 <script type="text/javascript" src="<?php echo Wub_Controller::$url?>www/js/jquery-ui-1.8.12.custom.min.js"></script>
 <script type="text/javascript" src="<?php echo Wub_Controller::$url?>www/js/jquery.form.js"></script> 
 <script type="text/javascript" src="<?php echo Wub_Controller::$url?>www/js/ui.spinner.min.js"></script>
+<script type="text/javascript" src="<?php echo Wub_Controller::$url?>www/js/jquery.wysiwyg.js"></script>
+<script type="text/javascript" src="<?php echo Wub_Controller::$url?>www/js/controls/default.js"></script>
+<script type="text/javascript" src="<?php echo Wub_Controller::$url?>www/js/controls/wysiwyg.image.js"></script>
+<script type="text/javascript" src="<?php echo Wub_Controller::$url?>www/js/controls/wysiwyg.link.js"></script>
+<script type="text/javascript" src="<?php echo Wub_Controller::$url?>www/js/controls/wysiwyg.table.js"></script>
 </head>
 <body>
     <script type="text/javascript">
@@ -22,6 +28,9 @@
         );
         $('.ui-state-default').click(function(){ $(this).toggleClass('ui-state-active'); });
         initAjaxForms();
+        
+        $('.wysiwyg').wysiwyg({
+        });
     });
 
     function initAjaxForms()

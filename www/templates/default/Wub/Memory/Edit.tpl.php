@@ -17,7 +17,7 @@ function get_var($var, $context) {
             </p>
             <p>
                 <label for="description">Details</label>
-                <textarea rows="10" cols="20" name="details"><?php echo get_var('details', $context);?></textarea>
+                <textarea rows="15" cols="60" name="details" class="wysiwyg"><?php echo get_var('details', $context);?></textarea>
             </p>
         <input type="hidden" name="id" value='<?php echo $context->id;?>'/>
         <input type="hidden" name="_class" value='<?php echo get_class($context->getRawObject()); ?>'/>
