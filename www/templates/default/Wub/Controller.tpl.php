@@ -1,5 +1,7 @@
+<!doctype html>
 <html>
 <head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <title>Wubbles</title>
 <link type="text/css" href="<?php echo Wub_Controller::$url?>www/css/main.css" rel="stylesheet" />
 <link type="text/css" href="<?php echo Wub_Controller::$url?>www/css/dot-luv/jquery-ui-1.8.12.custom.css" rel="stylesheet" />
