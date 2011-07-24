@@ -54,5 +54,21 @@ class Wub_Memory extends Wub_Editable
         }
         return false;
     }
+    
+    public function getMembersList()
+    {
+        return Wub_SharedMemory_List::getByMemory($this->id);
+    }
+    
+    public function getMembersListIDs()
+    {
+        $list = Wub_SharedMemory_List::getByMemory($this->id);
+        $array = array($this->owner_id);
+        foreach($list as $member) {
+            $array[] =  $member->account_id;
+        }
+        
+        return new ArrayIterator($array);
+    }
 
 }

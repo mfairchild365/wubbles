@@ -26,5 +26,28 @@ if (Wub_Controller::getAccount() && Wub_Controller::getAccount()->id == $context
         <li><b>Permission:</b> <?php echo $context->permission;?></li>
         <li><b>created:</b> <?php echo date("F j, Y, g:i a", $context->date_created);?></li>
         <li><b>edited:</b> <?php echo date("F j, Y, g:i a", $context->date_edited);?></li>
+        <li>
+            <b>People who can view this:</b>
+            <ul>
+                <?php 
+                switch ($context->permission) {
+                    case 'public':
+                        echo "<li>Anyone</li>";
+                        break;
+                    case 'friends':
+                        echo "<li>Friends</li>";
+                        break;
+                    case 'private':
+                    default:
+                        foreach($context->getMembersListIDs() as $member) {
+                            //echo $member;
+                            echo "<li>" . Wub_Account::getByID($member)->getFullName() . "</li>";
+                        }
+                        break;
+                }
+                
+                ?>
+            </ul>
+        </li>
     </ul>
 </div>

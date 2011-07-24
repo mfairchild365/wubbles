@@ -12,9 +12,15 @@ class Wub_Memory_View extends Wub_Memory
                 throw new exception('This function does not work yet.');
             case 'private':
             default:
-                if (!Wub_Controller::getAccount() || Wub_Controller::getAccount()->id != $this->owner_id) {
-                    throw new Exception("You do not have permission to view this.");
+                if (!Wub_Controller::getAccount()) {
+                    throw new Exception("You must be logged in to view this.");
                 }
+                
+                if (in_array(Wub_Controller::getAccount()->id, iterator_to_array($this->getMembersListIDs()))) {
+                    return;
+                }
+                
+                throw new Exception("You do not have permission to view this.");
         }
     }
 }

@@ -21,5 +21,12 @@ class Wub_SharedMemory_List extends Wub_List
         $options['sql'] = "SELECT id FROM shared_memory WHERE owner_id = " . (int)$ownerID . " AND account_id = ". (int)$accountID . " ORDER BY date_created ASC ";
         return self::getBySql($options);
     }
+    
+    public static function getByMemory($memoryID, $options = array())
+    {
+        $options        = $options + self::getDefaultOptions();
+        $options['sql'] = "SELECT id FROM shared_memory WHERE memory_id = " . (int)$memoryID . " ORDER BY date_created ASC ";
+        return self::getBySql($options);
+    }
 
 }
