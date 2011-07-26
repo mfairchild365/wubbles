@@ -3,11 +3,21 @@ class Wub_Picture_Edit extends Wub_Picture
 {
     function __construct($options = array())
     {
+        Wub_Controller::requireLogin();
         parent::__construct($options);
     }
     
     function handlePost($options = array())
     {
+        //Make sure everything is filled out.
+        if (!isset($_POST['title']) || empty($_POST['title'])) {
+            throw new Exception("No title provided");
+        }
+        
+        if (!isset($_POST['caption']) || empty($_POST['caption'])) {
+            $_POST['caption'] = '';
+        }
+        
         if ($_FILES['picture']['error']) {
             switch ($_FILES['picture']['error']) {
                 case 1:
@@ -31,9 +41,13 @@ class Wub_Picture_Edit extends Wub_Picture
         
         switch ($_FILES['picture']['type']) {
             case 'image/gif':
+                $extension = (empty($extension))?'.gif':$extension;
             case 'image/jpeg':
+                $extension = (empty($extension))?'.jpeg':$extension;
             case 'image/pjpeg':
+                $extension = (empty($extension))?'.jpeg':$extension;
             case 'image/png':
+                $extension = (empty($extension))?'.png':$extension;
                 break;
             default:
                 throw new Exception("That file type is not selected.  :(");
@@ -41,8 +55,12 @@ class Wub_Picture_Edit extends Wub_Picture
         
         //Determin the file name
         $filename = $this->memory_id . '-' . Wub_Controller::getAccount()->id . '-' . time();
+        $thumb_filename = $this->memory_id . '-' . Wub_Controller::getAccount()->id . '-' . time() . '-thumb' . $extension;
+        $filename      .= $extension;
         
-        if (file_exists(Wub_Controller::$uploadDir . $filename)) {
+        $this->path = $filename;
+        
+        if (file_exists($this->path)) {
             throw new Exception("That file already exists!");
         }
         
@@ -50,15 +68,15 @@ class Wub_Picture_Edit extends Wub_Picture
             throw new Exception("Failed to move the file on the server!");
         }
         
-        echo Wub_Controller::$uploadURL . $filename;
-
-        exit();
+        //render the image so that its a little easier on the filesystem.
+        $resizer = new Resize(Wub_Controller::$uploadDir . $filename);
+        $resizer->resizeImage(720, 540);
+        $resizer->saveImage(Wub_Controller::$uploadDir . $filename, 85);
         
-        echo "here"; exit();
-        //Make sure everything is filled out.
-        if (!isset($_POST['title']) || empty($_POST['title'])) {
-            throw new Exception("No title provided");
-        }
+        //Thumbnail
+        $resizer = new Resize(Wub_Controller::$uploadDir . $filename);
+        $resizer->resizeImage(150, 100);
+        $resizer->saveImage(Wub_Controller::$uploadDir . $thumb_filename, 75);
         
         parent::handlePost($options);
     }
