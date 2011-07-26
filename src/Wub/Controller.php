@@ -22,6 +22,10 @@ class Wub_Controller
     protected static $user = false;
 
     public static $url = '';
+    
+    public static $uploadDir = '';
+    
+    public static $uploadURL = '';
 
     public static $admins = array('admin');
 

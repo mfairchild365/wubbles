@@ -16,6 +16,10 @@ error_reporting(E_ALL);
 
 Wub_Controller::$url = 'http://localhost/wubbles/';
 
+Wub_Controller::$uploadDir = dirname(__FILE__) . "/uploaded/";
+
+Wub_Controller::$uploadURL = Wub_Controller::$url . "uploaded/";
+
 Wub_Controller::$admins = array('mfairchild365');
 
 Wub_Controller::setDbSettings(array(

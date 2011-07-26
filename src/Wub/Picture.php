@@ -9,6 +9,12 @@ class Wub_Picture extends Wub_Editable
     
     function __construct($options = array())
     {
+        if (!isset($options['memory_id'])) {
+            throw new Exception("No memory ID was passed!");
+        }
+        
+        $this->memory_id = $options['memory_id'];
+        
         parent::__construct($options);
     }
 
