@@ -7,6 +7,8 @@ class Wub_Picture extends Wub_Editable
     
     public $path;
     
+    public $memory_id;
+    
     function __construct($options = array())
     {
         parent::__construct($options);
@@ -82,6 +84,15 @@ class Wub_Picture extends Wub_Editable
         }
         
         return false;
+    }
+    
+    function canEdit()
+    {
+        if (!$memory = Wub_Memory::getByID($this->memory_id)) {
+            return false;
+        }
+        
+        return $memory->canEdit();
     }
 
 }
