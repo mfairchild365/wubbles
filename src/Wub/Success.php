@@ -56,6 +56,9 @@ class Wub_Success
                 case "memories":
                     $this->message = "Your memory has been successfully saved!";
                     break;
+                case "pictures":
+                    $this->message = "The Picture has been saved!";
+                    break;
                 default:
                     $this->message = "There was a success for something!  dunno what...";
                     break;
