@@ -130,6 +130,13 @@ h4 {
     padding: 0;
 }
 
+.photoList ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align:center;
+}
+
 .ajaxForm li {
     margin-left: 5px;
     padding:5px;

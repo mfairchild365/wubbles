@@ -13,13 +13,15 @@ if (Wub_Controller::getAccount() && $context->canEdit()) {
 
 <div class='colleft'>
     <h4>Pictures</h4>
-    <ul>
-        <?php 
-        foreach ($context->getPictures(10) as $picture) {
-            echo "<li><a href='" . $picture->getURL() . "'><img src='" . $picture->getThumbURL() . "' title='" . $picture->title . "' /></a></li>";
-        }
-        ?>
-    </ul>
+    <div class='photoList'>
+        <ul>
+            <?php 
+            foreach ($context->getPictures(10) as $picture) {
+                echo "<li><a href='" . $picture->getURL() . "'><img src='" . $picture->getThumbURL() . "' title='" . $picture->title . "' /></a></li>";
+            }
+            ?>
+        </ul>
+    </div>
 </div>
 
 <div class='colmid'>
