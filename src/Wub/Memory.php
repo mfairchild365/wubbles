@@ -80,5 +80,26 @@ class Wub_Memory extends Wub_Editable
     {
         return $this->getURL() . '/picture/edit';
     }
-
+    
+    function canView()
+    {
+        switch ($this->permission) {
+        case 'public':
+            return true;
+        case 'friends':
+            //TODO: add friend permission.
+            return false;
+        case 'private':
+        default:
+            if (!Wub_Controller::getAccount()) {
+                return false;
+            }
+            
+            if (in_array(Wub_Controller::getAccount()->id, iterator_to_array($this->getMembersListIDs()))) {
+                return true;
+            }
+            
+            return false;
+        }
+    }
 }

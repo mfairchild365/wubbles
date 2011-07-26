@@ -16,7 +16,7 @@ if (Wub_Controller::getAccount() && Wub_Controller::getAccount()->id == $context
     <ul>
         <?php 
         foreach ($context->getPictures(10) as $picture) {
-            echo "<li><img src='" . $picture->getThumbURL() . "' title='" . $picture->title . "' /></li>";
+            echo "<li><a href='" . $picture->getURL() . "'><img src='" . $picture->getThumbURL() . "' title='" . $picture->title . "' /></a></li>";
         }
         ?>
     </ul>

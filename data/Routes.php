@@ -28,6 +28,8 @@ $routes['/^memory\/(?<memory_id>[\d]+)\/share\/((?<id>[\d]+)\/)?edit?$/i'] = 'Wu
 
 $routes['/^memory\/(?<memory_id>[\d]+)\/picture\/((?<id>[\d]+)\/)?edit?$/i'] = 'Wub_Picture_Edit';
 
+$routes['/^memory\/(?<memory_id>[\d]+)\/picture\/(?<id>[\d]+)$/i'] = 'Wub_Picture_View';
+
 $routes['/^account\/(?<id>[\d]+)$/i'] = 'Wub_Account_View';
 
 $routes['/^account\/(?<account_id>[\d]+)\/friends$/i'] = 'Wub_Friendship_List';
@@ -35,6 +37,5 @@ $routes['/^account\/(?<account_id>[\d]+)\/friends$/i'] = 'Wub_Friendship_List';
 $routes['/^account\/list$/i'] = 'Wub_Account_List';
 
 $routes['/^account\/(?<id>[\d]+)\/request\/(?<type>(remove|block|send|accept|reject))$/i'] = 'Wub_Account_FriendRequest';
-
 
 return $routes;

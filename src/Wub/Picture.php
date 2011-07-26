@@ -94,5 +94,15 @@ class Wub_Picture extends Wub_Editable
         
         return $memory->canEdit();
     }
+    
+    function getMemory()
+    {
+        return Wub_Memory::getByID($this->memory_id);
+    }
+    
+    function canView()
+    {
+        return $this->getMemory()->canView();
+    }
 
 }
