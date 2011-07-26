@@ -4,6 +4,13 @@ class Wub_Picture_Edit extends Wub_Picture
     function __construct($options = array())
     {
         Wub_Controller::requireLogin();
+        
+        if (!isset($options['memory_id'])) {
+            throw new Exception("No memory ID was passed!");
+        }
+        
+        $this->memory_id = $options['memory_id'];
+        
         parent::__construct($options);
     }
     
@@ -43,9 +50,9 @@ class Wub_Picture_Edit extends Wub_Picture
             case 'image/gif':
                 $extension = (empty($extension))?'.gif':$extension;
             case 'image/jpeg':
-                $extension = (empty($extension))?'.jpeg':$extension;
+                $extension = (empty($extension))?'.jpg':$extension;
             case 'image/pjpeg':
-                $extension = (empty($extension))?'.jpeg':$extension;
+                $extension = (empty($extension))?'.jpg':$extension;
             case 'image/png':
                 $extension = (empty($extension))?'.png':$extension;
                 break;
