@@ -80,6 +80,7 @@ CREATE  TABLE IF NOT EXISTS `wubbles`.`pictures` (
   `caption` MEDIUMTEXT NULL ,
   `path` VARCHAR(100) NULL ,
   `memory_id` INT NULL ,
+  `primary` INT NULL ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
 

@@ -9,6 +9,8 @@ class Wub_Picture extends Wub_Editable
     
     public $memory_id;
     
+    public $primary;
+    
     function __construct($options = array())
     {
         parent::__construct($options);
