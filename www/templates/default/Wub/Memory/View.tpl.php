@@ -1,6 +1,6 @@
 <div class='memorySubject'><h4>Subject: <?php echo $context->subject;?></h4></div>
 <?php 
-if (Wub_Controller::getAccount() && Wub_Controller::getAccount()->id == $context->owner_id) {
+if (Wub_Controller::getAccount() && $context->canEdit()) {
     ?>
     <div class='options'>
         <a href='<?php echo $context->getURL();?>/share/edit' class='button'>Share</a>
