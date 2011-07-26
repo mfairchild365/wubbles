@@ -1,4 +1,4 @@
-<div class='memorySubject'><h4>Subject: <?php echo $context->subject;?></h4></div>
+<div class='memorySubject'><h4><?php echo $context->subject;?></h4></div>
 <?php 
 if (Wub_Controller::getAccount() && $context->canEdit()) {
     ?>

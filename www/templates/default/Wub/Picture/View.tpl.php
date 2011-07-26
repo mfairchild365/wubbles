@@ -1,4 +1,4 @@
-<h4><?php echo $context->title; ?></h4>
+<h4><?php echo $context->getMemory()->subject . ": " . $context->title; ?></h4>
 <div class='options'>
     <a href='<?php echo $context->getMemory()->getURL();?>' class='button'>Back to Memory</a>
     <?php 

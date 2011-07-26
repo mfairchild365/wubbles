@@ -3,6 +3,10 @@ body {
     color:blue;
 }
 
+h4 {
+    margin: 2px;
+}
+
 .spinner {
     width:75px;
 }

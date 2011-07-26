@@ -8,6 +8,19 @@ function get_var($var, $context) {
 }
 ?>
 
+<h4><?php echo $context->getMemory()->subject . ": " . $context->title; ?></h4>
+
+<div class='options'>
+    <a href='<?php echo $context->getMemory()->getURL();?>' class='button'>Back to Memory</a>
+    <?php 
+    if ($context->getPictureURL()) {
+        ?>
+        <a href='<?php echo $context->getURL();?>' class='button'>View</a>
+        <?php 
+    }
+    ?>
+</div>
+
 <form name="input" class='ajaxForm' id='memoryForm' action="<?php echo $context->getEditURL(); ?>" method="post" enctype="multipart/form-data">
     <fieldset>
         <legend>Create/Edit Picture</legend>
@@ -19,7 +32,7 @@ function get_var($var, $context) {
             <?php if (empty($context->id)) {?>
                 <li>
                     <label for="picture">Picture</label>
-                    <span class='helper'><em>The file must be under 2mb and a jpg or png.</em></span>
+                    <span class='helper'><em>The file must be under 5mb and a jpg or png.</em></span>
                     <input type="file" name="picture" id="file" /> 
                 </li>
             <?php }?>
