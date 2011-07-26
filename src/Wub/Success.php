@@ -53,6 +53,9 @@ class Wub_Success
                 case "shared_memory":
                     $this->message = "Your memory has been shared!";
                     break;
+                case "memories":
+                    $this->message = "Your memory has been successfully saved!";
+                    break;
                 default:
                     $this->message = "There was a success for something!  dunno what...";
                     break;
