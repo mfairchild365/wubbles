@@ -25,6 +25,15 @@ class Wub_Picture_Edit extends Wub_Picture
             $_POST['caption'] = '';
         }
         
+        if (empty($this->id)) {
+            $this->handleUpload();
+        }
+        
+        parent::handlePost($options);
+    }
+    
+    function handleUpload()
+    {
         if ($_FILES['picture']['error']) {
             switch ($_FILES['picture']['error']) {
                 case 1:
@@ -84,7 +93,5 @@ class Wub_Picture_Edit extends Wub_Picture
         $resizer = new Resize(Wub_Controller::$uploadDir . $filename);
         $resizer->resizeImage(150, 100);
         $resizer->saveImage(Wub_Controller::$uploadDir . $thumb_filename, 75);
-        
-        parent::handlePost($options);
     }
 }

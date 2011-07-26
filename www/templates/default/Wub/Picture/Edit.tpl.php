@@ -16,11 +16,13 @@ function get_var($var, $context) {
                 <label for="title">Title</label>
                 <input type="text" name="title" value="<?php echo get_var('title', $context);?>"/>
             </li>
-            <li>
-                <label for="picture">Picture</label>
-                <span class='helper'><em>The file must be under 2mb and a jpg or png.</em></span>
-                <input type="file" name="picture" id="file" /> 
-            </li>
+            <?php if (empty($context->id)) {?>
+                <li>
+                    <label for="picture">Picture</label>
+                    <span class='helper'><em>The file must be under 2mb and a jpg or png.</em></span>
+                    <input type="file" name="picture" id="file" /> 
+                </li>
+            <?php }?>
             <li>
                 <label for="caption">Caption:</label>
                 <input type="text" name="caption" value="<?php echo get_var('caption', $context);?>"/>
