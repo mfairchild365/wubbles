@@ -11,7 +11,14 @@ if (Wub_Controller::getAccount() && Wub_Controller::getAccount()->id == $context
 ?>
 
 <div class='colleft'>
-<h4>Pictures</h4>
+    <h4>Pictures</h4>
+    <ul>
+        <?php 
+        foreach ($context->getPictures(10) as $picture) {
+            echo "<li><img src='" . $picture->getThumbURL() . "' title='" . $picture->title . "' /></li>";
+        }
+        ?>
+    </ul>
 </div>
 
 <div class='colmid'>

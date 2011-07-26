@@ -9,12 +9,6 @@ class Wub_Picture extends Wub_Editable
     
     function __construct($options = array())
     {
-        if (!isset($options['memory_id'])) {
-            throw new Exception("No memory ID was passed!");
-        }
-        
-        $this->memory_id = $options['memory_id'];
-        
         parent::__construct($options);
     }
 
@@ -57,6 +51,34 @@ class Wub_Picture extends Wub_Editable
     {
         if (isset($this->id)) {
             return Wub_Controller::$url . "memory/" . $this->memory_id . "/picture/" . $this->id;
+        }
+        
+        return false;
+    }
+    
+    public function getPictureURL() 
+    {
+        return Wub_Controller::$uploadURL . $this->path;
+    }
+    
+    public function getThumbURL() 
+    {
+        return Wub_Controller::$uploadURL . $this->getFileName() . '-thumb' . $this->getExtension();
+    }
+    
+    public function getFileName()
+    {
+        if (isset($this->path[4])) {
+            return substr($this->path, 0, strlen($this->path) -4);
+        }
+        
+        return false;
+    }
+    
+    public function getExtension() 
+    {
+        if (isset($this->path[4])) {
+            return substr($this->path, -4);
         }
         
         return false;
