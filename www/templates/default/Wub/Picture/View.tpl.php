@@ -11,8 +11,8 @@
 </div>
 <div class='picture'>
     <img src='<?php echo $context->getPictureURL(); ?>' />
+    <div class='pictureCatpion'>
+        <?php echo $context->caption;?>
+    </div>
 </div>
 
-<div class='pictureCaption'>
-    <?php echo $context->caption;?>
-</div>
