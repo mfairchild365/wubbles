@@ -8,7 +8,7 @@ function get_var($var, $context) {
 }
 ?>
 
-<form name="input"  id='memoryForm' action="<?php echo $context->getEditURL(); ?>" method="post" enctype="multipart/form-data">
+<form name="input" class='ajaxForm' id='memoryForm' action="<?php echo $context->getEditURL(); ?>" method="post" enctype="multipart/form-data">
     <fieldset>
         <legend>Create/Edit Picture</legend>
         <ul>

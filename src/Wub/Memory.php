@@ -71,8 +71,14 @@ class Wub_Memory extends Wub_Editable
         return new ArrayIterator($array);
     }
     
-    public function getPictures($limit = 0) {
+    public function getPictures($limit = 0)
+    {
         return Wub_Picture_List::getAllByMemory($this->id, $limit);
+    }
+    
+    public function getAddPhotoURL()
+    {
+        return $this->getURL() . '/picture/edit';
     }
 
 }
