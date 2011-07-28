@@ -61,4 +61,8 @@ class Wub_SharedMemory extends Wub_Editable
         
         return self::getByID($row['id']);
     }
+    
+    public function canView() {
+        return true;
+    }
 }

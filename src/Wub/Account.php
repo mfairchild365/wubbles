@@ -85,4 +85,8 @@ class Wub_Account extends Wub_Editable
     {
         return ucwords(trim($this->firstname) . ' ' .  trim($this->lastname));
     }
+    
+    public function canView() {
+        return true;
+    }
 }

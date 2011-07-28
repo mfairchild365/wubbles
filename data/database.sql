@@ -85,6 +85,18 @@ CREATE  TABLE IF NOT EXISTS `wubbles`.`pictures` (
 ENGINE = InnoDB;
 
 
+-- -----------------------------------------------------
+-- Table `wubbles`.`comments`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `wubbles`.`comments` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `class` VARCHAR(100) NULL ,
+  `reference_id` VARCHAR(100) NULL ,
+  `comment` LONGTEXT NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
+
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

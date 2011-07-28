@@ -1,5 +1,5 @@
 <?php
-abstract class Wub_Editable extends Wub_Record
+abstract class Wub_Editable extends Wub_Record implements Wub_Permissionable
 {
     //Require these for every Wub_Editable class.
     public $id;
