@@ -59,6 +59,9 @@ class Wub_Success
                 case "pictures":
                     $this->message = "The Picture has been saved!";
                     break;
+                case "comments":
+                    $this->message = "Your comment has been saved!";
+                    break;
                 default:
                     $this->message = "There was a success for something!  dunno what...";
                     break;
