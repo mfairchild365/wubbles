@@ -118,18 +118,6 @@ h4 {
     border-width:1px;
 }
 
-/*FORMS*/
-.ajaxForm label {
-    display: block;
-    color: black;
-}
-
-.ajaxForm ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
 .photoList ul {
     list-style: none;
     margin: 0;
@@ -139,50 +127,6 @@ h4 {
 
 .pictureCatpion {
     color: white;
-}
-
-.ajaxForm li {
-    margin-left: 5px;
-    padding:5px;
-    border-bottom-style:solid;
-    border-left-style:solid;
-    border-width:1px;
-}
-
-.ajaxForm .helper {
-    display: block;
-    color: #F8F8F8;
-    font-size: 75%
-}
-
-.ajaxForm input, textarea {
-    color: black;
-    background: #D8D8D8;
-    border: 1px solid #686868;
-}
-
-.ajaxForm input:focus, textarea:focus{
-    border: 2px solid #B80000;
-}
-
-.ajaxForm .submit {
-    color: #000;
-    float: right;
-    margin: 5px;
-    border: 2px outset #686868;
-}
-
-.ajaxForm fieldset {
-    background: #B0B0B0 ;
-    border: 2px solid #484848;
-    width: 90%;
-}
-
-.ajaxForm legend {
-    color: #fff;
-    background: #303030 ;
-    border: 2px solid #484848;
-    padding: 2px 6px
 }
 
 /* saveTypes */

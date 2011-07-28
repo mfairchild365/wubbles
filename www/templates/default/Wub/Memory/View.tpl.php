@@ -34,8 +34,8 @@ if (Wub_Controller::getAccount() && $context->canEdit()) {
     <h4>Info</h4>
     <ul>
         <li><b>Permission:</b> <?php echo $context->permission;?></li>
-        <li><b>created:</b> <?php echo date("F j, Y, g:i a", $context->date_created);?></li>
-        <li><b>edited:</b> <?php echo date("F j, Y, g:i a", $context->date_edited);?></li>
+        <li><b>created:</b> <?php echo Wub_Utilities::formatTime($context->date_created);?></li>
+        <li><b>edited:</b> <?php echo Wub_Utilities::formatTime($context->date_edited);?></li>
         <li>
             <b>People who can view this:</b>
             <ul>

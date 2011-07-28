@@ -1,0 +1,46 @@
+.comments {
+    width:100%;
+    margint:2px;
+    background-color:#F0F0F0;
+}
+
+.commentList em {
+    color: white;
+    font-size: 75%
+}
+
+.commentList a {
+    color:grey;
+}
+
+
+.commentList a:hover {
+    color:red;
+}
+
+.commentList ul {
+    list-style: none;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding: 0;
+}
+
+ul .commentItem {
+    list-style: none;
+    margin: 2px;
+    margin-left: 15px;
+    border-style:solid;
+    border-width:1px;
+    background-color:black;
+}
+
+li .info {
+    color: #fff;
+    background: #303030 ;
+    border: 2px solid #484848;
+    padding: 2px 6px
+}
+
+li .details {
+    background-color:#F0F0F0;
+}
