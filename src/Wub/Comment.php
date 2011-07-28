@@ -49,4 +49,23 @@ class Wub_Comment extends Wub_Editable
         
         return Wub_Controller::$url . "comment/".$id."edit";
     }
+    
+    public function getReference()
+    {
+        return call_user_func($this->class . "::getByID", $this->reference_id);
+    }
+    
+    public function canEdit()
+    {
+        if (!$class = $this->getReference()) {
+            return false;
+        }
+        
+        return $class->canView();
+    }
+    
+    public function canView()
+    {
+        return $this->canEdit();
+    }
 }

@@ -1,5 +1,5 @@
 <?php
-class Wub_Picture extends Wub_Editable
+class Wub_Picture extends Wub_Editable implements Wub_Commentable
 {
     public $title;
     
@@ -107,4 +107,8 @@ class Wub_Picture extends Wub_Editable
         return $this->getMemory()->canView();
     }
 
+    public function getCommentableClass()
+    {
+        return 'Wub_Picture';
+    }
 }

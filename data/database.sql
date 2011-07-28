@@ -93,6 +93,9 @@ CREATE  TABLE IF NOT EXISTS `wubbles`.`comments` (
   `class` VARCHAR(100) NULL ,
   `reference_id` VARCHAR(100) NULL ,
   `comment` LONGTEXT NULL ,
+  `owner_id` INT NULL ,
+  `date_created` INT NULL ,
+  `date_edited` INT NULL ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
 
