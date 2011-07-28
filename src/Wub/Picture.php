@@ -1,5 +1,5 @@
 <?php
-class Wub_Picture extends Wub_Editable implements Wub_Commentable
+class Wub_Picture extends Wub_Editable
 {
     public $title;
     

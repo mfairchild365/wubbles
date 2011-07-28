@@ -15,6 +15,3 @@
         <?php echo $context->caption;?>
     </div>
 </div>
-
-<?php require dirname(dirname(__FILE__)) . "/Comment/Edit.tpl.php";?>
-

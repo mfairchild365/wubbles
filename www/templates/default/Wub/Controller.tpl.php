@@ -100,6 +100,10 @@
                     echo $savvy->render($context->actionable);
                     break;
             }
+            if (in_array('Wub_Commentable', class_implements($context->actionable->getRawObject()))) {
+                echo "<div style='clear:both'></div>";
+                require dirname(__FILE__) . '/Comment/Edit.tpl.php';
+            }
             ?>
         </div>
         <div style='clear:both'></div>
