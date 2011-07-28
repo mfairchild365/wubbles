@@ -1,6 +1,6 @@
 <script type="text/javascript">
     $.ajax({
-        url: "<?php echo Wub_Controller::$url; ?>comment/list?class=<?php echo $context->getCommentableClass();?>&reference_id=<?php echo $context->id?>&format=partial",
+        url: "<?php echo Wub_Controller::$url; ?>comment/list?class=<?php echo $context->actionable->getCommentableClass();?>&reference_id=<?php echo $context->actionable->id?>&format=partial",
         cache: false,
         success: function(html){
         $("#commentContainer").html(html);
