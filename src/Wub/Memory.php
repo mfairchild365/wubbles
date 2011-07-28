@@ -102,4 +102,9 @@ class Wub_Memory extends Wub_Editable
             return false;
         }
     }
+    
+    public function getCommentableClass()
+    {
+        return 'Wub_Memory';
+    }
 }

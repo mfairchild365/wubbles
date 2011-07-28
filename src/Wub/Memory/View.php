@@ -1,5 +1,5 @@
 <?php 
-class Wub_Memory_View extends Wub_Memory
+class Wub_Memory_View extends Wub_Memory implements Wub_Commentable
 {
     function __construct($options = array())
     {
