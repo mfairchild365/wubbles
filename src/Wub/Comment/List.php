@@ -16,6 +16,12 @@ class Wub_Comment_List extends Wub_List
             throw new Exception("No reference ID provided!");
         }
         
+        $class = Wub_Record::getByAnyField($options['class'], 'id', (int)$options['reference_id']);
+        
+        if (!$class->canView()) {
+            throw new Exception("You do not have permission to view this.");
+        }
+        
         $options['returnArray'] = true;
         
         $options['array'] = self::getAllCommentsByClassAndID($options['class'], $options['reference_id'], $options);
