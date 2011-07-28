@@ -40,7 +40,7 @@
 
         if ($(div).find('#success').length > 0
             && $(div).find('.created').length > 0) {
-            $('.ajaxForm').clearForm();
+            $('.commentForm').clearForm();
             refreshComments();
         }
         return false;
