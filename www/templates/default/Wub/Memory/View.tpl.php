@@ -49,9 +49,9 @@ if (Wub_Controller::getAccount() && $context->canEdit()) {
                         break;
                     case 'private':
                     default:
-                        foreach($context->getMembersListIDs() as $member) {
+                        foreach($context->getMembersList() as $member) {
                             //echo $member;
-                            echo "<li>" . Wub_Account::getByID($member)->getFullName() . "</li>";
+                            echo "<li>" . $member->getFullName() . "</li>";
                         }
                         break;
                 }

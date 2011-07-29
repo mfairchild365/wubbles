@@ -1,5 +1,5 @@
 <?php
-class Wub_Memory extends Wub_Editable
+class Wub_Memory extends Wub_Editable implements Wub_Notifiable
 {
     public $subject;
     
@@ -57,7 +57,23 @@ class Wub_Memory extends Wub_Editable
     
     public function getMembersList()
     {
-        return Wub_SharedMemory_List::getByMemory($this->id);
+        $list = array();
+        switch ($this->permission) {
+            case 'public':
+                break;
+            case 'friends':
+                //TODO
+                break;
+            case 'private':
+                $shared = Wub_SharedMemory_List::getByMemory($this->id);
+                $options['array'] = array();
+                foreach ($shared as $item) {
+                    $options['array'][] =  $item->account_id;
+                }
+                $options['array'][] = $this->owner_id;
+                return new Wub_Account_List($options);
+        }
+        return $list;
     }
     
     public function getMembersListIDs()
@@ -126,5 +142,29 @@ class Wub_Memory extends Wub_Editable
         }
         
         parent::delete();
+    }
+    
+    public function getNotifyMembersList()
+    {
+        return $this->getMembersList();
+    }
+    
+    public function getNotifyClass()
+    {
+        return 'Wub_Memory';
+    }
+    
+    public function getNotifyReferenceID() {
+        return $this->id;
+    }
+    
+    public function getNotifyText($saveType)
+    {
+        switch ($saveType) {
+            case 'save':
+                return "Memory has been updated.";
+            case 'create':
+                return "A Memory has been created!";
+        }
     }
 }

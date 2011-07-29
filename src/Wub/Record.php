@@ -14,6 +14,10 @@
 
 abstract class Wub_Record
 {
+    function __construct() {
+        
+    }
+    
     /**
      * Prepare the insert SQL for this record
      *
@@ -67,18 +71,24 @@ abstract class Wub_Record
     function save()
     {
         $key_set = true;
-
+        
         foreach ($this->keys() as $key) {
             if (empty($this->$key)) {
-                $key_set = false;
+                $saveType = 'create';
             }
         }
-
-        if (!$key_set) {
-            return $this->insert();
+        
+        if ($saveType == 'create') {
+            $result = $this->insert();
+        } else {
+            $result = $this->update();
         }
-
-        return $this->update();
+        
+        if (in_array('Wub_Notifiable', class_implements($this))) {
+            Wub_Notification::createNotifications($this->getNotifyClass(), $this->getNotifyReferenceID(), $saveType);
+        }
+        
+        return $result;
     }
 
     /**

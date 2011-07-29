@@ -1,5 +1,5 @@
 <?php
-class Wub_Comment extends Wub_Editable
+class Wub_Comment extends Wub_Editable implements Wub_Notifiable
 {
     public $class;
     
@@ -67,5 +67,27 @@ class Wub_Comment extends Wub_Editable
     public function canView()
     {
         return $this->canEdit();
+    }
+    
+    public function getNotifyMembersList()
+    {
+        return $this->getReference()->getNotifyMembersList();
+    }
+    
+    public function getNotifyClass()
+    {
+        return 'Wub_Comment';
+    }
+    
+    public function getNotifyReferenceID() {
+        return $this->id;
+    }
+    
+    public function getNotifyText($saveType)
+    {
+        switch ($saveType) {
+            case 'create':
+                return "A Comment has been added!";
+        }
     }
 }
