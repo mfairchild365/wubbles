@@ -70,7 +70,7 @@ abstract class Wub_Record
      */
     function save()
     {
-        $key_set = true;
+        $saveType = 'save';
         
         foreach ($this->keys() as $key) {
             if (empty($this->$key)) {
