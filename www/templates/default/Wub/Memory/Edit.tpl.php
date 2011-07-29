@@ -13,7 +13,7 @@ if (!empty($context->id)) {
     ?>
     <div class='options'>
         <a href='<?php echo $context->getURL();?>' class='button'>View</a>
-        <a href='<?php echo $context->getURL();?>/delete' class='button'>Delete</a>
+        <a href='<?php echo $context->getURL();?>/delete' class='button confirmLink'>Delete</a>
     </div>
     <?php 
 }

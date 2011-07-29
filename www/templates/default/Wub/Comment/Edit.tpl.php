@@ -1,3 +1,5 @@
+<script type="text/javascript" src="<?php echo Wub_Controller::$url?>www/js/confirmLinks.js"></script>
+
 <script type="text/javascript">
     $(function() {
         refreshComments();
@@ -19,6 +21,7 @@
             cache: false,
             success: function(html){
             $("#commentContainer").html(html);
+            initConfirmLinks();
             }
         });
     }

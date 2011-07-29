@@ -13,10 +13,10 @@ function get_var($var, $context) {
 <div class='options'>
     <a href='<?php echo $context->getMemory()->getURL();?>' class='button'>Back to Memory</a>
     <?php 
-    if ($context->getPictureURL()) {
+    if (!empty($context->id)) {
         ?>
         <a href='<?php echo $context->getURL();?>' class='button'>View</a>
-        <a href='<?php echo $context->getURL();?>/delete' class='button'>Delete</a>
+        <a href='<?php echo $context->getURL();?>/delete' class='button confirmLink'>Delete</a>
         <?php 
     }
     ?>

@@ -12,6 +12,7 @@
 <script type="text/javascript" src="<?php echo Wub_Controller::$url?>www/js/jquery-1.6.min.js"></script>
 <script type="text/javascript" src="<?php echo Wub_Controller::$url?>www/js/jquery-ui-1.8.12.custom.min.js"></script>
 <script type="text/javascript" src="<?php echo Wub_Controller::$url?>www/js/jquery.form.js"></script> 
+<script type="text/javascript" src="<?php echo Wub_Controller::$url?>www/js/confirmLinks.js"></script>
 <script type="text/javascript" src="<?php echo Wub_Controller::$url?>www/js/ui.spinner.min.js"></script>
 <script type="text/javascript" src="<?php echo Wub_Controller::$url?>www/js/jquery.wysiwyg.js"></script>
 <script type="text/javascript" src="<?php echo Wub_Controller::$url?>www/js/controls/default.js"></script>
@@ -33,8 +34,13 @@
         );
         $('.ui-state-default').click(function(){ $(this).toggleClass('ui-state-active'); });
         initAjaxForms();
+        initConfirmLinks();
         
-        $('.wysiwyg').wysiwyg({
+        $('.wysiwyg').wysiwyg();
+        
+        $("#dialog").dialog({
+            autoOpen: false,
+            modal: true
         });
     });
 
@@ -112,6 +118,8 @@
         </div>
         <div style='clear:both'></div>
         <div id="dialog-message" title="Dialog">
+        </div>
+        <div id="dialog" title="Dialog">
         </div>
         <hr />
         For Amy. &lt;3. Created by Michael Fairchild

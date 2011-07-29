@@ -8,7 +8,7 @@
                     
                     $delete = "";
                     if ($comment->canDelete()) {
-                        $delete = "<a href='" . $comment->getURL() . "/delete'>Delete</a>";
+                        $delete = "<a href='" . $comment->getURL() . "/delete' class='confirmLink'>Delete</a>";
                     }
                     echo "<li class='info'>
                               <b>" . $owner->getFullName() . "</b>
