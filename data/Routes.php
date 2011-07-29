@@ -22,6 +22,8 @@ $routes['/^mymemories$/i'] = 'Wub_Memory_MyMemories';
 
 $routes['/^memory\/((?<id>[\d]+)\/)?edit$/i'] = 'Wub_Memory_Edit';
 
+$routes['/^memory\/(?<id>[\d]+)\/(?<action>(delete))/i'] = 'Wub_Memory';
+
 $routes['/^comment\/((?<id>[\d]+)\/)?edit$/i'] = 'Wub_Comment_Edit';
 
 $routes['/^memory\/(?<id>[\d]+)$/i'] = 'Wub_Memory_View';
@@ -39,6 +41,8 @@ $routes['/^account\/(?<account_id>[\d]+)\/friends$/i'] = 'Wub_Friendship_List';
 $routes['/^account\/list$/i'] = 'Wub_Account_List';
 
 $routes['/^comment\/(?<id>[\d]+)\/(?<action>(delete))$/i'] = 'Wub_Comment';
+
+$routes['/^memory\/(?<memory_id>[\d]+)\/picture\/(?<id>[\d]+)\/(?<action>(delete))$/i'] = 'Wub_Picture';
 
 $routes['/^comment\/list$/i'] = 'Wub_Comment_List';
 

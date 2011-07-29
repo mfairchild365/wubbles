@@ -116,7 +116,6 @@ abstract class Wub_Editable extends Wub_Record implements Wub_Permissionable
         }
         
         throw new Exception("You do not have permission to delete this.");
-        echo "here";  exit();
     }
     
     //This function attempts to check if the save button was pressed twice (or more) when creating.

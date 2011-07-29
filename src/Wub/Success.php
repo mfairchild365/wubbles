@@ -56,8 +56,14 @@ class Wub_Success
                 case "memories":
                     $this->message = "Your memory has been successfully saved!";
                     break;
+                case "memories_delete":
+                    $this->message = "Your memory has been deleted!";
+                    break;
                 case "pictures":
                     $this->message = "The Picture has been saved!";
+                    break;
+                case "pictures_delete":
+                    $this->message = "The Picture has been deleted!";
                     break;
                 case "comments":
                     $this->message = "Your comment has been saved!";

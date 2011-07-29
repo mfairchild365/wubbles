@@ -107,4 +107,24 @@ class Wub_Memory extends Wub_Editable
     {
         return 'Wub_Memory';
     }
+    
+    function delete()
+    {
+        //Delete all the comments for this memory.
+        foreach (Wub_Comment_List::getAllCommentsByClassAndID($this->getCommentableClass(), $this->id) as $comment) {
+            $comment->delete();
+        }
+        
+        //Delete all the pictures for this memory.
+        foreach (Wub_Picture_List::getAllByMemory($this->id) as $picture) {
+            $picture->delete();
+        }
+        
+        //Delete all shared memories.
+        foreach (Wub_SharedMemory_List::getByMemory($this->id) as $shared) {
+            $shared->delete();
+        }
+        
+        parent::delete();
+    }
 }

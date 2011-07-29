@@ -111,4 +111,14 @@ class Wub_Picture extends Wub_Editable
     {
         return 'Wub_Picture';
     }
+    
+    function delete()
+    {
+        //Delete all the comments for this picture.
+        foreach (Wub_Comment_List::getAllCommentsByClassAndID($this->getCommentableClass(), $this->id) as $comment) {
+            $comment->delete();
+        }
+        
+        parent::delete();
+    }
 }
