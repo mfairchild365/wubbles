@@ -84,7 +84,9 @@ class Wub_Notification extends Wub_Record implements Wub_Permissionable
     {
         $class = call_user_func($referenceClass. "::getByID", $referenceID);
         foreach($class->getNotifyMembersList() as $member) {
-            self::createNotification($referenceClass, $referenceID, $saveType, $member->id);
+            if (Wub_Controller::getAccount() && Wub_Controller::getAccount() !== $member->id) {
+                self::createNotification($referenceClass, $referenceID, $saveType, $member->id);
+            }
         }
     }
 

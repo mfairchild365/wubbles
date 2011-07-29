@@ -100,6 +100,21 @@ CREATE  TABLE IF NOT EXISTS `wubbles`.`comments` (
 ENGINE = InnoDB;
 
 
+-- -----------------------------------------------------
+-- Table `wubbles`.`notifications`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `wubbles`.`notifications` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `reference_class` VARCHAR(100) NULL ,
+  `reference_id` INT NULL ,
+  `to_id` INT NULL ,
+  `date_created` INT NULL ,
+  `read` INT(1) NULL DEFAULT 0 ,
+  `save_type` VARCHAR(45) NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
+
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
