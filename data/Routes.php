@@ -38,6 +38,8 @@ $routes['/^account\/(?<account_id>[\d]+)\/friends$/i'] = 'Wub_Friendship_List';
 
 $routes['/^account\/list$/i'] = 'Wub_Account_List';
 
+$routes['/^comment\/(?<id>[\d]+)\/(?<action>(delete))$/i'] = 'Wub_Comment';
+
 $routes['/^comment\/list$/i'] = 'Wub_Comment_List';
 
 $routes['/^account\/(?<id>[\d]+)\/request\/(?<type>(remove|block|send|accept|reject))$/i'] = 'Wub_Account_FriendRequest';

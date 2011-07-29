@@ -62,6 +62,9 @@ class Wub_Success
                 case "comments":
                     $this->message = "Your comment has been saved!";
                     break;
+                case "comments_delete":
+                    $this->message = "Your comment has been deleted!";
+                    break;
                 default:
                     $this->message = "There was a success for something!  dunno what...";
                     break;

@@ -108,6 +108,17 @@ abstract class Wub_Editable extends Wub_Record implements Wub_Permissionable
         Wub_Controller::redirect($redirectURL);
     }
     
+    function handleAction($options = array())
+    {
+        if ($this->canDelete()) {
+            $this->delete();
+            Wub_Controller::redirect(Wub_Controller::$url . "success?for=".$this->getTable()."_delete");
+        }
+        
+        throw new Exception("You do not have permission to delete this.");
+        echo "here";  exit();
+    }
+    
     //This function attempts to check if the save button was pressed twice (or more) when creating.
     function isDuplicate()
     {
@@ -146,6 +157,23 @@ abstract class Wub_Editable extends Wub_Record implements Wub_Permissionable
         }
         
         if (Wub_Controller::isAdmin(Wub_Controller::getAccount()->id)) {
+            return true;
+        }
+        
+        return false;
+    }
+    
+    function canDelete()
+    {
+        if (!$account = Wub_Controller::getAccount()) {
+            return false;
+        }
+        
+        if ($account->isAdmin()) {
+            return true;
+        }
+        
+        if ($account->id == $this->owner_id) {
             return true;
         }
         
