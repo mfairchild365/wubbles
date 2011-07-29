@@ -8,6 +8,17 @@ function get_var($var, $context) {
 }
 ?>
 
+<?php 
+if (!empty($context->id)) {
+    ?>
+    <div class='options'>
+        <a href='<?php echo $context->getURL();?>' class='button'>View</a>
+        <a href='<?php echo $context->getURL();?>/delete' class='button'>Delete</a>
+    </div>
+    <?php 
+}
+?>
+
 <form name="input" class="ajaxForm" id='memoryForm' action="<?php echo $context->getEditURL(); ?>" method="post">
     <fieldset>
         <legend>Create/Edit Memory</legend>

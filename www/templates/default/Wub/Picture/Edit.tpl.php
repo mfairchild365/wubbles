@@ -16,6 +16,7 @@ function get_var($var, $context) {
     if ($context->getPictureURL()) {
         ?>
         <a href='<?php echo $context->getURL();?>' class='button'>View</a>
+        <a href='<?php echo $context->getURL();?>/delete' class='button'>Delete</a>
         <?php 
     }
     ?>
