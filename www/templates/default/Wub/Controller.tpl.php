@@ -67,6 +67,7 @@
         if ($(div).find('#success').length > 0
             && $(div).find('.created').length > 0) {
             $('.ajaxForm').clearForm();
+            $('.wysiwyg').wysiwyg('clear');
         }
         return false;
     }
