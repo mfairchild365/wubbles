@@ -21,6 +21,8 @@ class Wub_Memory_Edit extends Wub_Memory
             throw new Exception("no permission provided");
         }
         
+        $options['continueURL'] = 'view';
+        
         parent::handlePost($options);
     }
 }

@@ -91,12 +91,15 @@ abstract class Wub_Editable extends Wub_Record implements Wub_Permissionable
         $redirectURL = Wub_Controller::$url.'success?for='.$this->getTable().'&saveType=' . $saveType;
         
         //check if a continue url was passed.
-        if (isset($options['onCreate']['continueURL'])) {
+        if (isset($options['continueURL'])) {
             $redirectURL .= "&continueURL=";
             
-            switch($options['onCreate']['continueURL']) {
-                case "editURL":
+            switch($options['continueURL']) {
+                case "edit":
                     $redirectURL .= $this->getURL() . "/edit";
+                    break;
+                case "view":
+                    $redirectURL .= $this->getURL();
                     break;
                 default:
                     $redirectURL .= $options['onCreate']['continueURL'];
