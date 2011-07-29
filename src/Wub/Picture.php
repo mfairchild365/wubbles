@@ -1,5 +1,5 @@
 <?php
-class Wub_Picture extends Wub_Editable
+class Wub_Picture extends Wub_Editable implements Wub_Notifiable
 {
     public $title;
     
@@ -134,5 +134,29 @@ class Wub_Picture extends Wub_Editable
         }
         
         parent::delete();
+    }
+    
+    public function getNotifyMembersList()
+    {
+        return $this->getMemory()->getMembersList();
+    }
+    
+    public function getNotifyClass()
+    {
+        return 'Wub_Picture';
+    }
+    
+    public function getNotifyReferenceID() {
+        return $this->id;
+    }
+    
+    public function getNotifyText($saveType)
+    {
+        switch ($saveType) {
+            case 'save':
+                return "Picture has been updated.";
+            case 'create':
+                return "A Picture has been added!";
+        }
     }
 }
