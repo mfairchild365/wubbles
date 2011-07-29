@@ -29,7 +29,7 @@ class Wub_Picture_Edit extends Wub_Picture
             $this->handleUpload();
         }
         
-        $_POST['primary'] = 0;
+        $this->primary = 0;
         
         parent::handlePost($options);
     }
