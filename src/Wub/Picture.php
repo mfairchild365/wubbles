@@ -133,6 +133,11 @@ class Wub_Picture extends Wub_Editable implements Wub_Notifiable
             $comment->delete();
         }
         
+        //Delete all notifiactions
+        foreach (Wub_Notification_List::getAllByClassAndID($this->getNotifyClass(), $this->getNotifyReferenceID()) as $notification) {
+            $notification->delete();
+        }
+        
         parent::delete();
     }
     

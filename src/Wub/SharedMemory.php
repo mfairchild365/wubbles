@@ -1,5 +1,5 @@
 <?php
-class Wub_SharedMemory extends Wub_Editable
+class Wub_SharedMemory extends Wub_Editable implements Wub_Notifiable
 {
     public $memory_id;
     
@@ -64,5 +64,43 @@ class Wub_SharedMemory extends Wub_Editable
     
     public function canView() {
         return true;
+    }
+    
+    function delete()
+    {
+        //Delete all notifiactions
+        foreach (Wub_Notification_List::getAllByClassAndID($this->getNotifyClass(), $this->getNotifyReferenceID()) as $notification) {
+            $notification->delete();
+        }
+        
+        parent::delete();
+    }
+    
+    public function getNotifyMembersList()
+    {
+        $options['array'][] = $this->account_id;
+        return new Wub_Account_List($options);
+    }
+    
+    public function getNotifyClass()
+    {
+        return 'Wub_SharedMemory';
+    }
+    
+    public function getNotifyReferenceID() {
+        return $this->id;
+    }
+    
+    public function getNotifyText($saveType)
+    {
+        switch ($saveType) {
+            case 'create':
+                return "A Memory is now shared with you!";
+        }
+    }
+    
+    public function getURL()
+    {
+        return $this->getMemory()->getURL();
     }
 }

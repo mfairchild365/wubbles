@@ -141,6 +141,11 @@ class Wub_Memory extends Wub_Editable implements Wub_Notifiable
             $shared->delete();
         }
         
+        //Delete all notifiactions
+        foreach (Wub_Notification_List::getAllByClassAndID($this->getNotifyClass(), $this->getNotifyReferenceID()) as $notification) {
+            $notification->delete();
+        }
+        
         parent::delete();
     }
     

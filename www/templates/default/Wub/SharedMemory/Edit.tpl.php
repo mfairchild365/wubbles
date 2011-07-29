@@ -51,7 +51,7 @@ $memory = Wub_Memory::getByID($context->memory_id);
 </script>
 
 Subject: <?php echo $memory->subject?>
-<form class="ajaxForm" id='memoryForm' action="<?php echo $context->getEditURL(); ?>" method="post">
+<form  id='memoryForm' action="<?php echo $context->getEditURL(); ?>" method="post">
     <fieldset>
         <legend>Share a Memory</legend>
             <ul>

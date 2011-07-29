@@ -90,4 +90,14 @@ class Wub_Comment extends Wub_Editable implements Wub_Notifiable
                 return "A Comment has been added!";
         }
     }
+    
+    function delete()
+    {
+        //Delete all notifiactions
+        foreach (Wub_Notification_List::getAllByClassAndID($this->getNotifyClass(), $this->getNotifyReferenceID()) as $notification) {
+            $notification->delete();
+        }
+        
+        parent::delete();
+    }
 }
