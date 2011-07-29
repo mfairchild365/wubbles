@@ -65,9 +65,19 @@ class Wub_Picture extends Wub_Editable
         return Wub_Controller::$uploadURL . $this->path;
     }
     
+    public function getFullPath()
+    {
+        return Wub_Controller::$uploadDir . $this->path;
+    }
+    
     public function getThumbURL() 
     {
         return Wub_Controller::$uploadURL . $this->getFileName() . '-thumb' . $this->getExtension();
+    }
+    
+    public function getFullThumbPath()
+    {
+        return Wub_Controller::$uploadDir . $this->getFileName() . '-thumb' . $this->getExtension();
     }
     
     public function getFileName()
@@ -114,6 +124,10 @@ class Wub_Picture extends Wub_Editable
     
     function delete()
     {
+        //Delete the pictures on the file system.
+        unlink($this->getFullPath());
+        unlink($this->getFullThumbPath());
+        
         //Delete all the comments for this picture.
         foreach (Wub_Comment_List::getAllCommentsByClassAndID($this->getCommentableClass(), $this->id) as $comment) {
             $comment->delete();
