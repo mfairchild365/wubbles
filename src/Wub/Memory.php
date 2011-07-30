@@ -34,7 +34,7 @@ class Wub_Memory extends Wub_Editable implements Wub_Notifiable
     
     function getName()
     {
-        return 'Memory';
+        return 'Memory: '. $this->subject;
     }
     
     public function getEditURL()

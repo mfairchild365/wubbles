@@ -29,7 +29,7 @@ class Wub_Comment extends Wub_Editable implements Wub_Notifiable
     
     function getName()
     {
-        return 'Comment';
+        return $this->getReference()->getName();
     }
     
     public function getURL()
