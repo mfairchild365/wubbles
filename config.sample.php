@@ -22,6 +22,10 @@ Wub_Controller::$uploadURL = Wub_Controller::$url . "uploaded/";
 
 Wub_Controller::$admins = array('mfairchild365');
 
+Wub_Controller::$emailAddress = "no-reply@wubblesmemories.com";
+
+Wub_Controller::$webmasterEmail = "mfairchild365@gmail.com";
+
 Wub_Controller::setDbSettings(array(
     'host'     => 'localhost',
     'user'     => 'wubbles',

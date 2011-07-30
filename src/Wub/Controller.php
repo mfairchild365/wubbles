@@ -35,7 +35,11 @@ class Wub_Controller
         'password' => 'wub',
         'dbname'   => 'wub'
     );
-
+    
+    public static $emailAddress = "";
+    
+    public static  $webmasterEmail = "";
+    
     public $actionable = array();
 
     function __construct($options = array())
