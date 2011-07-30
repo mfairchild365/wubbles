@@ -43,7 +43,7 @@ class Wub_SharedMemory_Edit extends Wub_SharedMemory
             throw new Exception("You do not have permission to share this.");
         }
         
-        $shared = Wub_SharedMemory::getByAccountaAndMemory($_POST['account_id'], $_POST['memory_id']);
+        $shared = Wub_SharedMemory::getByAccountAndMemory($_POST['account_id'], $_POST['memory_id']);
         
         if (empty($this->id) && $shared) {
             throw new Exception("A record already exists for this!");

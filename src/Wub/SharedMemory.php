@@ -46,7 +46,7 @@ class Wub_SharedMemory extends Wub_Editable implements Wub_Notifiable
         return Wub_Memory::getByID($this->memory_id)->getURL() . "/share/".$id."edit";
     }
     
-    public static function getByAccountaAndMemory($account_id, $memory_id)
+    public static function getByAccountAndMemory($account_id, $memory_id)
     {
         $mysqli = Wub_Controller::getDB();
         $sql    = "SELECT id FROM shared_memory 

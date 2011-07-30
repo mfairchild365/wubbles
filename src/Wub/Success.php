@@ -74,6 +74,9 @@ class Wub_Success
                 case "notifications_delete":
                     $this->message = "The notification has been deleted!";
                     break;
+                case "multishare":
+                    $this->message = "The memory has been shared with the people you selected.";
+                    break;
                 default:
                     $this->message = "There was a success for something!  dunno what...";
                     break;

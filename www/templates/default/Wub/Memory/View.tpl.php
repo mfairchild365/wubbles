@@ -3,7 +3,7 @@
 if (Wub_Controller::getAccount() && $context->canEdit()) {
     ?>
     <div class='options'>
-        <a href='<?php echo $context->getURL();?>/share/edit' class='button'>Share</a>
+        <a href='<?php echo $context->getURL();?>/share/multiedit' class='button'>Share</a>
         <a href='<?php echo $context->getEditURL();?>' class='button'>Edit</a>
         <a href='<?php echo $context->getAddPhotoURL();?>' class='button'>Add A Photo</a>
     </div>

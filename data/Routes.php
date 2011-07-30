@@ -32,6 +32,8 @@ $routes['/^memory\/(?<id>[\d]+)$/i'] = 'Wub_Memory_View';
 
 $routes['/^memory\/(?<memory_id>[\d]+)\/share\/((?<id>[\d]+)\/)?edit?$/i'] = 'Wub_SharedMemory_Edit';
 
+$routes['/^memory\/(?<memory_id>[\d]+)\/share\/((?<id>[\d]+)\/)?multiedit?$/i'] = 'Wub_SharedMemory_MultiEdit';
+
 $routes['/^memory\/(?<memory_id>[\d]+)\/picture\/((?<id>[\d]+)\/)?edit?$/i'] = 'Wub_Picture_Edit';
 
 $routes['/^memory\/(?<memory_id>[\d]+)\/picture\/(?<id>[\d]+)$/i'] = 'Wub_Picture_View';
