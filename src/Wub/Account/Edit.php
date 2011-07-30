@@ -3,6 +3,7 @@ class Wub_Account_Edit extends Wub_Account
 {
     function __construct($options = array())
     {
+        $this->email_notifications = 1;
         parent::__construct($options);
     }
     
@@ -14,7 +15,7 @@ class Wub_Account_Edit extends Wub_Account
         } 
         
         //check passwords
-        if($_POST['password'] != $_POST['password2']) {
+        if(empty($this->id) && $_POST['password'] != $_POST['password2']) {
             throw new Exception("Passwords do not match");
         }
         
@@ -30,7 +31,7 @@ class Wub_Account_Edit extends Wub_Account
             throw new Exception("You must fill out your email");
         }
         
-        if (!isset($_POST['password']) || empty($_POST['password'])) {
+        if (empty($this->id) && (!isset($_POST['password']) || empty($_POST['password']))) {
             throw new Exception("You must fill out your password");
         }
         
@@ -42,24 +43,27 @@ class Wub_Account_Edit extends Wub_Account
             throw new Exception("You must select your email notification settings");
         }
         
-        if (empty($this->id) && Wub_Account::getByAnyField('Wub_Account', 'email', $_POST['email'])){
+        if ((empty($this->id) || $_POST['email'] != $this->email) && Wub_Account::getByAnyField('Wub_Account', 'email', $_POST['email'])){
             throw new Exception("This email address is already in use.");
         }
         
-        if (empty($this->id) && Wub_Account::getByAnyField('Wub_Account', 'username', $_POST['username'])){
+        if ((empty($this->id) || $_POST['username'] != $this->username) && Wub_Account::getByAnyField('Wub_Account', 'username', $_POST['username'])){
             throw new Exception("This username is already in use.");
         }
         
-        $this->email_notifications = 0;
-        if ((int)$_POST['email_notifications'] == 1) {
-            $this->email_notifications = 1;
+        $this->email_notifications = 1;
+        if ((int)$_POST['email_notifications'] == 0) {
+            $this->email_notifications = 0;
         }
         unset($_POST['email_notifications']);
         
         $_POST['activated']          = false;
         $_POST['role']               = 'user';
         $_POST['date_created']       = time();
-        $_POST['password']           = sha1($_POST['password']);
+        
+        if (empty($this->id)) {
+            $_POST['password'] = sha1($_POST['password']);
+        }
         
         parent::handlePost($options);
     }

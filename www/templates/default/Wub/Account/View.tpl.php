@@ -4,6 +4,7 @@ if (Wub_Controller::getAccount() && $context->canEdit()) {
     ?>
     <div class='options'>
         <a href='<?php echo $context->getURL();?>/edit' class='button'>Edit Account</a>
+        <a href='<?php echo $context->getURL();?>/edit/password' class='button'>Change Passwordt</a>
     </div>
     <?php 
 }

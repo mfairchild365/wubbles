@@ -140,7 +140,7 @@ abstract class Wub_Editable extends Wub_Record implements Wub_Permissionable
         if (!isset($this->id) || empty($this->id)) {
             return true;
         }
-       
+        
         //for accoutns.
         if ($this->owner_id == NULL && $this->id == Wub_Controller::getAccount()->id && $this->getTable() == 'accounts') {
             return true;

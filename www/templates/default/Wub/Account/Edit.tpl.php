@@ -6,6 +6,14 @@ function get_var($var, $context) {
     
     return null;
 }
+
+if (!empty($context->id) && Wub_Controller::getAccount() && $context->canEdit()) {
+    ?>
+    <div class='options'>
+        <a href='<?php echo $context->getURL();?>/edit/password' class='button'>Change Passwordt</a>
+    </div>
+    <?php 
+}
 ?>
 
 <form class='ajaxForm' name="input" action="<?php echo $context->getEditURL(); ?>" method="post">
@@ -27,12 +35,14 @@ function get_var($var, $context) {
             <li>
                 <label>username:</label> <input type="text" name="username" value="<?php echo get_var('username', $context);?>"/>
             </li>
+            <?php if (empty($context->id)) {?>
             <li>
                 <label>password:</label> <input type="password" name="password" value="<?php echo get_var('password', $context);?>"/>
             </li>
             <li>
                 <label>retype pssword:</label><input type="password" name="password2" value="<?php echo get_var('password', $context);?>"/>
             </li>
+            <?php }?>
             <li>
                 <label>Recieve Notification Emails:</label>
                 <span class='helper'><em>You can can choose to opt-out of them here.</em></span>

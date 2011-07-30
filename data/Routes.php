@@ -15,6 +15,8 @@ $routes['/^register$/i'] = 'Wub_Account_Edit';
 
 $routes['/^account\/((?<id>[\d]+)\/)?edit$/i'] = 'Wub_Account_Edit';
 
+$routes['/^account\/((?<id>[\d]+)\/)?edit\/password$/i'] = 'Wub_Account_EditPassword';
+
 //Success
 $routes['/^success$/i'] = 'Wub_Success';
 
