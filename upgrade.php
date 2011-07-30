@@ -38,3 +38,4 @@ function exec_sql($db, $sql, $message, $fail_ok = false)
 }
 
 exec_sql($db, file_get_contents(dirname(__FILE__).'/data/database.sql'), 'Initializing database structure');
+exec_sql($db, "ALTER TABLE `accounts`  ADD `email_notifications` INT(1) DEFAULT 1", "Adding email_notifications", true);

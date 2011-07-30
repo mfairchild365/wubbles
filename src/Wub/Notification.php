@@ -17,7 +17,22 @@ class Wub_Notification extends Wub_Record implements Wub_Permissionable
     
     function __construct($options = array())
     {
-        parent::__construct($options);
+        //Check to see if we are editing this bro.
+        if (isset($options['model']) && get_called_class() != $options['model']) {
+            //We are not viewing this model, return.
+            return;
+        }
+        
+        //An Id was not passed, so we are just making a new one.
+        if (!isset($options['id'])) {
+            return;
+        }
+        
+        if (!$class = $this->getByID($options['id'])) {
+            throw new Exception("Could not find that");
+        }
+        
+        $this->synchronizeWithArray($class->toArray());
     }
 
     function insert()
@@ -58,11 +73,6 @@ class Wub_Notification extends Wub_Record implements Wub_Permissionable
         return false;
     }
     
-    function canDelete()
-    {
-        return false;
-    }
-    
     function canView()
     {
         return false;
@@ -93,6 +103,33 @@ class Wub_Notification extends Wub_Record implements Wub_Permissionable
     public function getReference()
     {
         return call_user_func($this->reference_class . "::getByID", $this->reference_id);
+    }
+    
+    public function canDelete()
+    {
+        if (!$account = Wub_Controller::getAccount()) {
+            return false;
+        }
+        
+        if ($account->isAdmin()) {
+            return true;
+        }
+        
+        if ($account->id == $this->to_id) {
+            return true;
+        }
+        
+        return false;
+    }
+    
+    function handleAction($options = array())
+    {
+        if ($this->canDelete()) {
+            $this->delete();
+            Wub_Controller::redirect(Wub_Controller::$url . "success?for=".$this->getTable()."_delete");
+        }
+        
+        throw new Exception("You do not have permission to delete this.");
     }
 
 }

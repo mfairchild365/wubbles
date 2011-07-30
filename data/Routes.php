@@ -50,4 +50,6 @@ $routes['/^account\/(?<id>[\d]+)\/request\/(?<type>(remove|block|send|accept|rej
 
 $routes['/^account\/(?<account_id>[\d]+)\/notifications$/i'] = 'Wub_Notification_List';
 
+$routes['/^notification\/(?<id>[\d]+)\/(?<action>(delete))$/i'] = 'Wub_Notification';
+
 return $routes;

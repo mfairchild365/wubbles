@@ -10,7 +10,7 @@
                     <li class='notificationHeader'>
                         <b><?php echo $reference->getName();?></b>
                         <em><?php echo Wub_Utilities::formatTime($notification->date_created);?></em>
-                        <a href='' class='confirmLink'>delete</a>
+                        <a href='<?php echo Wub_Controller::$url . "notification/" . $notification->id?>/delete' class='confirmLink'>delete</a>
                     </li>
                     <li class='notificationDetails'>
                         <?php echo $reference->getNotifyText($notification->save_type);?> <br/>
