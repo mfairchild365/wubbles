@@ -38,6 +38,10 @@ class Wub_Account_Edit extends Wub_Account
             throw new Exception("You must fill out your username");
         }
         
+        if (!isset($_POST['email_notifications']) && in_array($_POST['email_notifications'], array(1,0))) {
+            throw new Exception("You must select your email notification settings");
+        }
+        
         if (empty($this->id) && Wub_Account::getByAnyField('Wub_Account', 'email', $_POST['email'])){
             throw new Exception("This email address is already in use.");
         }
@@ -46,10 +50,16 @@ class Wub_Account_Edit extends Wub_Account
             throw new Exception("This username is already in use.");
         }
         
-        $_POST['activated']    = false;
-        $_POST['role']         = 'user';
-        $_POST['date_created'] = time();
-        $_POST['password']     = sha1($_POST['password']);
+        $this->email_notifications = 0;
+        if ((int)$_POST['email_notifications'] == 1) {
+            $this->email_notifications = 1;
+        }
+        unset($_POST['email_notifications']);
+        
+        $_POST['activated']          = false;
+        $_POST['role']               = 'user';
+        $_POST['date_created']       = time();
+        $_POST['password']           = sha1($_POST['password']);
         
         parent::handlePost($options);
     }

@@ -33,6 +33,14 @@ function get_var($var, $context) {
             <li>
                 <label>retype pssword:</label><input type="password" name="password2" value="<?php echo get_var('password', $context);?>"/>
             </li>
+            <li>
+                <label>Recieve Notification Emails:</label>
+                <span class='helper'><em>You can can choose to opt-out of them here.</em></span>
+                <select name="email_notifications">
+                    <option value="1" <?php echo (get_var('email_notifications', $context) == 1)?"selected='selected'":"";?>>Yes please</option>
+                    <option value="0" <?php echo (get_var('email_notifications', $context) == 0)?"selected='selected'":"";?>>No way</option>
+                </select>
+            </li>
         </ul>
     <input type="hidden" name="id" value='<?php echo $context->id;?>'/>
     <input type="hidden" name="_class" value='<?php echo get_class($context->getRawObject()); ?>'/>

@@ -1,5 +1,13 @@
 <h3><?php echo $context->getFullName();?></h3>
 <?php 
+if (Wub_Controller::getAccount() && $context->canEdit()) {
+    ?>
+    <div class='options'>
+        <a href='<?php echo $context->getURL();?>/edit' class='button'>Edit Account</a>
+    </div>
+    <?php 
+}
+
 if (Wub_Controller::getAccount() && $context->id != Wub_Controller::getAccount()->id) {
     if (!$friendship = Wub_Friendship::getFriendship(Wub_Controller::getAccount()->id, $context->id)) {
         echo "<a href='" . $context->getURL() . "/request/send'>Send a friend request</a>";

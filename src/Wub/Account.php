@@ -67,7 +67,7 @@ class Wub_Account extends Wub_Editable
     public function getEditURL()
     {
         $id = "";
-        if (empty($this->id)) {
+        if (!empty($this->id)) {
             $id = $this->id . "/";
         }
         
