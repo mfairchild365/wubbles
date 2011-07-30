@@ -41,7 +41,7 @@ li .info {
     padding: 2px 6px
 }
 
-li .info a {
+li .info  .confirmLink {
     float:right;
 }
 
