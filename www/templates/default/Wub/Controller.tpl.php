@@ -68,9 +68,21 @@
         $( "#dialog-message" ).dialog( "open" );
 
         if ($(div).find('#ajaxRedirect').length > 0) {
-            window.location.replace($(div).find('#ajaxRedirect').html());
+            $("#dialog-message").dialog("option", "buttons", [
+                {
+                    text: "Continue",
+                    click: function() {
+                        window.location.replace($(div).find('#ajaxRedirect').html());
+                    }
+                }
+            ]);
+            window.setTimeout(function() {
+                window.location.replace($(div).find('#ajaxRedirect').html());
+            }, 5000);
+            
         }
-
+        
+        $( "#dialog-message" ).dialog( "open" );
         if ($(div).find('#success').length > 0
             && $(div).find('.created').length > 0) {
             $('.ajaxForm').clearForm();
