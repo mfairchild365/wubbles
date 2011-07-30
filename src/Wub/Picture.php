@@ -38,7 +38,7 @@ class Wub_Picture extends Wub_Editable implements Wub_Notifiable
     
     function getName()
     {
-        return $this->getMemory()->getName();
+        return $this->getMemory()->getName() .  ": Picture - " . $this->title;
     }
     
     public function getEditURL()
