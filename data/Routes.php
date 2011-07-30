@@ -48,4 +48,6 @@ $routes['/^comment\/list$/i'] = 'Wub_Comment_List';
 
 $routes['/^account\/(?<id>[\d]+)\/request\/(?<type>(remove|block|send|accept|reject))$/i'] = 'Wub_Account_FriendRequest';
 
+$routes['/^account\/(?<account_id>[\d]+)\/notifications$/i'] = 'Wub_Notification_List';
+
 return $routes;

@@ -89,5 +89,10 @@ class Wub_Notification extends Wub_Record implements Wub_Permissionable
             }
         }
     }
+    
+    public function getReference()
+    {
+        return call_user_func($this->reference_class . "::getByID", $this->reference_id);
+    }
 
 }

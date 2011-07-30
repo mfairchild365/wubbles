@@ -42,14 +42,6 @@ abstract class Wub_Editable extends Wub_Record implements Wub_Permissionable
         }
     }
     
-    /**
-     * The human readable name that the table/class represents.
-     * This will be used in succes/error messages.
-     *
-     * @return mix
-     */
-    abstract function getName();
-    
     function handlePost($options = array())
     {
         //check if the id was changed via post.  This is a big no no.

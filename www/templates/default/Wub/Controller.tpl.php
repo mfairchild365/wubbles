@@ -7,6 +7,7 @@
 <link type="text/css" href="<?php echo Wub_Controller::$url?>www/css/ajaxForm.css" rel="stylesheet" />
 <link type="text/css" href="<?php echo Wub_Controller::$url?>www/css/commentForm.css" rel="stylesheet" />
 <link type="text/css" href="<?php echo Wub_Controller::$url?>www/css/Comments.css" rel="stylesheet" />
+<link type="text/css" href="<?php echo Wub_Controller::$url?>www/css/Notifications.css" rel="stylesheet" />
 <link type="text/css" href="<?php echo Wub_Controller::$url?>www/css/dot-luv/jquery-ui-1.8.12.custom.css" rel="stylesheet" />
 <link type="text/css" href="<?php echo Wub_Controller::$url?>www/css/jquery.wysiwyg.css" rel="stylesheet" />
 <script type="text/javascript" src="<?php echo Wub_Controller::$url?>www/js/jquery-1.6.min.js"></script>

@@ -15,4 +15,6 @@ interface Wub_Notifiable
     public function getNotifyText($saveType);
     
     public function getNotifyReferenceID();
+    
+    public function getName();
 }
