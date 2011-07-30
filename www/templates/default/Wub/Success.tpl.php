@@ -18,7 +18,7 @@
         }
         
         if (!empty($context->continueURL)) {
-            echo "<div class='diolagButtons'><a href='".$context->continueURL."' class='positive'>Continue</a></div>";
+            echo "<div id='continueURL' style='visibility:hidden;'>".$context->continueURL."</div>";
         }
         ?>
         

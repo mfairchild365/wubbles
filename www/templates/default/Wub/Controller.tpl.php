@@ -79,10 +79,19 @@
             window.setTimeout(function() {
                 window.location.replace($(div).find('#ajaxRedirect').html());
             }, 5000);
-            
         }
         
-        $( "#dialog-message" ).dialog( "open" );
+        if ($(div).find('#continueURL').length > 0) {
+            $("#dialog-message").dialog("option", "buttons", [
+                {
+                    text: "Continue",
+                    click: function() {
+                        window.location.replace($(div).find('#continueURL').html());
+                    }
+                }
+            ]);
+        }
+        
         if ($(div).find('#success').length > 0
             && $(div).find('.created').length > 0) {
             $('.ajaxForm').clearForm();
