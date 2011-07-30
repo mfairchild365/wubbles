@@ -7,8 +7,11 @@ function autoload($class)
     
 spl_autoload_register("autoload");
 
-set_include_path(dirname(__FILE__) . 
-'/src'.PATH_SEPARATOR.dirname(__FILE__).'/lib/php');
+set_include_path(
+    implode(PATH_SEPARATOR, array(get_include_path())).PATH_SEPARATOR
+    .dirname(__FILE__) . '/src'.PATH_SEPARATOR
+    .dirname(__FILE__).'/lib/php'
+);
 
 ini_set('display_errors', true);
 

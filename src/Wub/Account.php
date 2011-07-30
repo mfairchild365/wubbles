@@ -15,6 +15,8 @@ class Wub_Account extends Wub_Editable
     
     public $lastname;
     
+    public $email_notifications;
+    
     public static function getByID($id)
     {
         return self::getByAnyField('Wub_Account', 'id', (int)$id);

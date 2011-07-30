@@ -131,5 +131,69 @@ class Wub_Notification extends Wub_Record implements Wub_Permissionable
         
         throw new Exception("You do not have permission to delete this.");
     }
+    
+    function sendEmail()
+    {
+        $account = Wub_Account::getByID($this->to_id);
+        
+        $reference = $this->getReference();
+        
+        if ($this->reference_class == 'Wub_Comment') {
+            $reference = $reference->getReference();
+        }
 
+        $html = " <html>
+                    <head>
+                      <title>Wubbles Notification</title>
+                    </head>
+                    <body>
+                      <p>Hello, " .  $account->getFullName() . "</p>
+                      <div>
+                      " . $reference->getNotifyText($this->save_type) . " <br />
+                      <a href='" . $reference->getURL() . "'>View it now!</a>
+                      </div>
+                      <em>Note: You can dissable emails from for profile on Wubbles.</em>
+                    </body>
+                    </html>";
+        
+        include('Mail.php');
+        include('Mail/mime.php');
+        
+        // Constructing the email
+        $sender = Wub_Controller::$emailAddress;
+        $recipient = $account->email;
+        $subject = 'Wubbles Notification';
+        $headers = array(
+            'From'          => $sender,
+            'Return-Path'   => $sender,
+            'Subject'       => $subject
+        );
+        
+        // Creating the Mime message
+        $mime = new Mail_mime("\n");
+        
+        $mime->setHTMLBody($html);
+        
+         // Set body and headers ready for base mail class
+        $body    = $mime->get();
+        $headers = $mime->headers($headers);
+        
+        // SMTP params
+        $smtp_params["host"] = "localhost"; // SMTP host
+        $smtp_params["port"] = "25";               // SMTP Port (usually 25)
+        
+        // Sending the email using smtp
+        $mail = Mail::factory("smtp", $smtp_params);
+        
+        $mail->send($recipient, $headers, $body);
+    }
+
+    function save()
+    {
+        parent::save();
+        
+        if (Wub_Account::getByID($this->to_id)->email_notifications) {
+            $this->sendEmail();
+        }
+    }
 }
