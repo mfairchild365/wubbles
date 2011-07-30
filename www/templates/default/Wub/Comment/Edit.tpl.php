@@ -55,7 +55,7 @@
     <div id='commentContainer'>
         Loading...
     </div>
-    <form name="input"  action="<?php echo Wub_Controller::$url; ?>comment/edit" method="post" enctype="multipart/form-data">
+    <form name="input" class='commentForm' action="<?php echo Wub_Controller::$url; ?>comment/edit" method="post" enctype="multipart/form-data">
         <fieldset>
             <legend>Add A Comment</legend>
             <ul>
