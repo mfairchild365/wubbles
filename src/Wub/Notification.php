@@ -138,10 +138,6 @@ class Wub_Notification extends Wub_Record implements Wub_Permissionable
         
         $reference = $this->getReference();
         
-        if ($this->reference_class == 'Wub_Comment') {
-            $reference = $reference->getReference();
-        }
-
         $html = " <html>
                     <head>
                       <title>Wubbles Notification</title>

@@ -34,10 +34,7 @@ class Wub_Comment extends Wub_Editable implements Wub_Notifiable
     
     public function getURL()
     {
-        if (isset($this->id)) {
-            return Wub_Controller::$url . "comment/" . $this->id;
-        }
-        return false;
+        return $this->getReference()->getURL();
     }
     
     public function getEditURL()
