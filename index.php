@@ -20,14 +20,13 @@ $savvy = new Wub_OutputController();
 
 if ($wub->options['format'] != 'html') {
     switch($wub->options['format']) {
+        case 'json':
+            $savvy->addTemplatePath(dirname(__FILE__).'/www/templates/'.$wub->options['format']);
+            header('Content-type:application/json;charset=UTF-8');
+            break;
         case 'partial':
             Savvy_ClassToTemplateMapper::$output_template['Wub_Controller'] = 'Wub/Controller-partial';
         case 'text':
-        case 'json':
-            //echo $wub->options['format'];  exit();
-            //echo dirname(__FILE__).'/www/templates/'.$wub->options['format']; exit();
-            $savvy->addTemplatePath(dirname(__FILE__).'/www/templates/'.$wub->options['format']);
-            break;
         default:
             header('Content-type:text/html;charset=UTF-8');
     }

@@ -1,13 +1,17 @@
 <h3><?php echo $context->getFullName();?></h3>
-<?php 
-if (Wub_Controller::getAccount() && $context->canEdit()) {
-    ?>
-    <div class='options'>
+
+<div class='options'>
+    <?php
+    if (Wub_Controller::getAccount() && $context->canEdit()) {
+        ?>
         <a href='<?php echo $context->getURL();?>/edit' class='button'>Edit Account</a>
         <a href='<?php echo $context->getURL();?>/edit/password' class='button'>Change Passwordt</a>
-    </div>
-    <?php 
-}
+        <?php 
+    }
+    ?>
+    <a href='<?php echo $context->getURL();?>/timeline' class='button'>Timeline</a>
+</div>
+<?php
 
 if (Wub_Controller::getAccount() && $context->id != Wub_Controller::getAccount()->id) {
     if (!$friendship = Wub_Friendship::getFriendship(Wub_Controller::getAccount()->id, $context->id)) {

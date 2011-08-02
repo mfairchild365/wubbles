@@ -3,7 +3,7 @@ class Wub_Memory_List extends Wub_List
 {
     function __construct($options = array())
     {
-        if (!isset($options['model']) || $options['model'] != 'Wub_Memory_List') {
+        if (!isset($options['model']) || (!in_array($options['model'], array('Wub_Memory_List', 'Wub_Memory_List_Timeline')))) {
             parent::__construct($options);
             return;
         }
