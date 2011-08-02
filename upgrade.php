@@ -42,3 +42,4 @@ exec_sql($db, "ALTER TABLE `accounts`  ADD `email_notifications` INT(1) DEFAULT 
 exec_sql($db, "ALTER TABLE `memories`  ADD `start_date` INT(15) NULL DEFAULT 0", "Adding start date", true);
 exec_sql($db, "ALTER TABLE `memories`  ADD `end_date` INT(15) NULL DEFAULT 0", "Adding end date", true);
 exec_sql($db, "ALTER TABLE `memories`  ADD `importance` INT(3) DEFAULT 1", "Adding importance", true);
+exec_sql($db, "ALTER TABLE `accounts`  ADD `activation_code` VARCHAR(100) DEFAULT 0", "Adding importance", true);

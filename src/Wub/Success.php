@@ -77,6 +77,9 @@ class Wub_Success
                 case "multishare":
                     $this->message = "The memory has been shared with the people you selected.";
                     break;
+                case "activate":
+                    $this->message = "Your account has been activated, and you have been logged in.";
+                    break;
                 default:
                     $this->message = "There was a success for something!  dunno what...";
                     break;

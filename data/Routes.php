@@ -23,6 +23,8 @@ $routes['/^account\/(?<account_id>[\d]+)\/memories\/timeline$/i'] = 'Wub_Memory_
 
 $routes['/^account\/(?<account_id>[\d]+)\/memories$/i'] = 'Wub_Memory_List';
 
+$routes['/^account\/(?<account_id>[\d]+)\/activate$/i'] = 'Wub_Account_Activate';
+
 //Success
 $routes['/^success$/i'] = 'Wub_Success';
 

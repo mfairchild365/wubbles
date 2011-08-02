@@ -17,6 +17,8 @@ class Wub_Account extends Wub_Editable
     
     public $email_notifications;
     
+    public $activation_code;
+    
     public static function getByID($id)
     {
         return self::getByAnyField('Wub_Account', 'id', (int)$id);
@@ -90,5 +92,23 @@ class Wub_Account extends Wub_Editable
     
     public function canView() {
         return true;
+    }
+    
+    public function getActivationURL()
+    {
+        return $this->getURL() . "/activate?code=" . $this->activation_code;
+    }
+    
+    public function sendActivationCode()
+    {
+        $this->activation_code = md5(time() . $this->id);
+        
+        $this->save();
+        
+        $subject = "Wubbles Memories: Activate Your Account";
+        
+        $body = "Hello, please activate your account by following this url: " . $this->getActivationURL();
+        
+        Wub_Email::sendEmail($this->email, $subject, $body);
     }
 }
