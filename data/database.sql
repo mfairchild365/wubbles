@@ -20,6 +20,7 @@ CREATE  TABLE IF NOT EXISTS `wubbles`.`accounts` (
   `lastname` VARCHAR(45) NULL ,
   `owner_id` INT NULL ,
   `date_edited` INT NULL ,
+  `activation_code` VARCHAR(100) NULL ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
 
