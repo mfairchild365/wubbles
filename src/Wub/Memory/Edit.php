@@ -4,6 +4,8 @@ class Wub_Memory_Edit extends Wub_Memory
     function __construct($options = array())
     {
         $this->importance = 20;
+        $this->start_date = time();
+        $this->end_date   = time();
         
         parent::__construct($options);
     }
@@ -27,6 +29,10 @@ class Wub_Memory_Edit extends Wub_Memory
             throw new Exception("no start date provided");
         }
         
+        if (!isset($_POST['end_date']) || empty($_POST['end_date'])) {
+            throw new Exception("no end date provided");
+        }
+        
         if (!isset($_POST['importance']) || empty($_POST['importance'])) {
             throw new Exception("no importance provided");
         }
@@ -37,11 +43,7 @@ class Wub_Memory_Edit extends Wub_Memory
         
         $_POST['start_date'] = strtotime($_POST['start_date']);
         
-        if (isset($_POST['end_date']) && !empty($_POST['end_date'])) {
-            $_POST['end_date'] = strtotime($_POST['end_date']);
-        } else {
-            $_POST['end_date'] =  $_POST['start_date'];
-        }
+        $_POST['end_date'] = strtotime($_POST['end_date']);
         
         if ($_POST['end_date'] < $_POST['start_date']) {
             throw new Exception("That makes no sense silly.  Make sure you have the dates right.");
