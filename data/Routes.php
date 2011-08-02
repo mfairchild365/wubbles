@@ -17,6 +17,12 @@ $routes['/^account\/((?<id>[\d]+)\/)?edit$/i'] = 'Wub_Account_Edit';
 
 $routes['/^account\/((?<id>[\d]+)\/)?edit\/password$/i'] = 'Wub_Account_EditPassword';
 
+$routes['/^account\/(?<account_id>[\d]+)\/timeline$/i'] = 'Wub_Timeline';
+
+$routes['/^account\/(?<account_id>[\d]+)\/memories\/timeline$/i'] = 'Wub_Memory_List_Timeline';
+
+$routes['/^account\/(?<account_id>[\d]+)\/memories$/i'] = 'Wub_Memory_List';
+
 //Success
 $routes['/^success$/i'] = 'Wub_Success';
 
