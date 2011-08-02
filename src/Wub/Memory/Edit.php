@@ -40,7 +40,11 @@ class Wub_Memory_Edit extends Wub_Memory
         if (isset($_POST['end_date']) && !empty($_POST['end_date'])) {
             $_POST['end_date'] = strtotime($_POST['end_date']);
         } else {
-            $this->end_date = 0;
+            $_POST['end_date'] =  $_POST['start_date'];
+        }
+        
+        if ($_POST['end_date'] < $_POST['start_date']) {
+            throw new Exception("That makes no sense silly.  Make sure you have the dates right.");
         }
         
         $options['continueURL'] = 'view';
