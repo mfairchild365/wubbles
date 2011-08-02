@@ -7,6 +7,12 @@ class Wub_Memory extends Wub_Editable implements Wub_Notifiable
     
     public $permission;
     
+    public $start_date;
+    
+    public $end_date;
+    
+    public $importance;  //scale of 1 to 100.
+    
     function __construct($options = array())
     {
         parent::__construct($options);

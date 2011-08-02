@@ -39,3 +39,6 @@ function exec_sql($db, $sql, $message, $fail_ok = false)
 
 exec_sql($db, file_get_contents(dirname(__FILE__).'/data/database.sql'), 'Initializing database structure');
 exec_sql($db, "ALTER TABLE `accounts`  ADD `email_notifications` INT(1) DEFAULT 1", "Adding email_notifications", true);
+exec_sql($db, "ALTER TABLE `memories`  ADD `start_date` INT(15) NULL DEFAULT 0", "Adding start date", true);
+exec_sql($db, "ALTER TABLE `memories`  ADD `end_date` INT(15) NULL DEFAULT 0", "Adding end date", true);
+exec_sql($db, "ALTER TABLE `memories`  ADD `importance` INT(3) DEFAULT 1", "Adding importance", true);
