@@ -30,8 +30,7 @@ if (Wub_Controller::getAccount() && $context->id != Wub_Controller::getAccount()
     <ul>
         <?php 
         if (Wub_Controller::getAccount()) {
-            foreach (Wub_SharedMemory_List::getByAccountAndOwner(Wub_Controller::getAccount()->id, $context->id) as $sharedMemory) {
-                $memory = $sharedMemory->getMemory();
+            foreach (Wub_Memory_List::getDynamicForAccount($context->id) as $memory) {
                 echo "<li><a href='" . $memory->getURL() . "'>" . $memory->subject . "</a></li>";
             }
         }
