@@ -40,6 +40,10 @@ class Wub_Controller
     
     public static  $webmasterEmail = "";
     
+    public static $analytics = "";
+    
+    public static $footerAd = "";
+    
     public $actionable = array();
 
     function __construct($options = array())
