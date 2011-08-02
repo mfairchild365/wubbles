@@ -29,6 +29,11 @@ Wub_Controller::$emailAddress = "no-reply@wubblesmemories.com";
 
 Wub_Controller::$webmasterEmail = "mfairchild365@gmail.com";
 
+//captcha
+Wub_Controller::$captcha_publicKey = "";
+
+Wub_Controller::$captcha_privateKey = "";
+
 Wub_Controller::setDbSettings(array(
     'host'     => 'localhost',
     'user'     => 'wubbles',

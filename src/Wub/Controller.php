@@ -40,7 +40,11 @@ class Wub_Controller
     
     public static  $webmasterEmail = "";
     
-    public static $analytics = "lolol";
+    public static $analytics = "";
+    
+    public static $captcha_publicKey = "";
+    
+    public static $captcha_privateKey = "";
     
     public static $footerAd = "";
     

@@ -16,7 +16,7 @@ if (!empty($context->id) && Wub_Controller::getAccount() && $context->canEdit())
 }
 ?>
 
-<form class='ajaxForm' name="input" action="<?php echo $context->getEditURL(); ?>" method="post">
+<form  name="input" class='ajaxForm' action="<?php echo $context->getEditURL(); ?>" method="post">
     <fieldset>
     <legend>Create/Edit Account</legend>
         <ul>
@@ -51,6 +51,14 @@ if (!empty($context->id) && Wub_Controller::getAccount() && $context->canEdit())
                     <option value="0" <?php echo (get_var('email_notifications', $context) == 0)?"selected='selected'":"";?>>No way</option>
                 </select>
             </li>
+            <?php if (empty($context->id)) {?>
+            <li>
+                <?php 
+                require 'recaptchalib.php';
+                echo recaptcha_get_html(Wub_Controller::$captcha_publicKey);
+                ?>
+            </li>
+            <?php }?>
         </ul>
     <input type="hidden" name="id" value='<?php echo $context->id;?>'/>
     <input type="hidden" name="_class" value='<?php echo get_class($context->getRawObject()); ?>'/>

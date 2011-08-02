@@ -63,6 +63,21 @@ class Wub_Account_Edit extends Wub_Account
         
         if (empty($this->id)) {
             $_POST['password'] = sha1($_POST['password']);
+            
+            require 'recaptchalib.php';
+            
+            if (!isset($_POST["recaptcha_response_field"])) {
+                throw new Exception("You must fill out the captcha.");
+            }
+            
+            $resp = recaptcha_check_answer(Wub_Controller::$captcha_privateKey,
+                                            $_SERVER["REMOTE_ADDR"],
+                                            $_POST["recaptcha_challenge_field"],
+                                            $_POST["recaptcha_response_field"]);
+            
+            if (!$resp->is_valid) {
+                throw new Exception("Captcha not valid, please try again.");
+            }
         }
         
         parent::handlePost($options);
