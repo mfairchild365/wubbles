@@ -35,6 +35,9 @@ CREATE  TABLE IF NOT EXISTS `wubbles`.`memories` (
   `subject` VARCHAR(100) NULL ,
   `details` LONGTEXT NULL ,
   `permission` VARCHAR(45) NULL ,
+  `start_date` INT NULL DEFAULT 0 ,
+  `end_date` INT NULL DEFAULT 0 ,
+  `importance` INT NULL ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
 
