@@ -26,6 +26,7 @@
 <script type="text/javascript" src="<?php echo Wub_Controller::$url?>www/js/controls/wysiwyg.table.js"></script>
 </head>
 <body>
+    <?php echo Wub_Controller::$analytics;?>
     <script type="text/javascript">
     $(function() {
         $( "#dialog-message" ).dialog({

@@ -40,7 +40,7 @@ class Wub_Controller
     
     public static  $webmasterEmail = "";
     
-    public static $analytics = "";
+    public static $analytics = "lolol";
     
     public static $footerAd = "";
     
