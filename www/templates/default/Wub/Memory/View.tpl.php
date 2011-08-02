@@ -25,6 +25,9 @@ if (Wub_Controller::getAccount() && $context->canEdit()) {
 </div>
 
 <div class='colmid'>
+    <div class='memoryDate'>
+        From: <?php echo date('M-d-Y',  $context->start_date);?> To:  <?php echo date('M-d-Y', $context->end_date);?>
+    </div>
     <h4>Details:</h4>
     <div class='memoryDetails'><?php echo html_entity_decode($context->details)?></div>
     
