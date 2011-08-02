@@ -48,10 +48,10 @@ class Wub_Memory_List extends Wub_List
         
         $whereAdd = "";
         if (Wub_Controller::getAccount()) {
-            $whereAdd = " OR memories.owner_id = " . (int)Wub_Controller::getAccount()->id . " OR shared_memory.account_id = " . (int)Wub_Controller::getAccount()->id;
+            $whereAdd = "OR shared_memory.account_id = " . (int)Wub_Controller::getAccount()->id . " OR memories.owner_id = " . (int)Wub_Controller::getAccount()->id;
         }
         
-        $options['sql'] = "SELECT memories.id FROM memories LEFT JOIN (shared_memory) ON (shared_memory.memory_id = memories.id) WHERE memories.permission = 'public'" .  $whereAdd . " ORDER BY memories.date_created ASC";
+        $options['sql'] = "SELECT memories.id FROM memories LEFT JOIN (shared_memory) ON (shared_memory.memory_id = memories.id) WHERE memories.owner_id = " . (int)$accountID . " AND  (memories.permission = 'public' " .  $whereAdd . ") ORDER BY memories.date_created ASC";
         
         return self::getBySql($options);
     }
