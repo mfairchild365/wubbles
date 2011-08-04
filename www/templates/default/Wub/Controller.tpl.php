@@ -20,7 +20,6 @@
 <script type="text/javascript" src="<?php echo Wub_Controller::$url?>www/js/confirmLinks.js"></script>
 <script type="text/javascript" src="<?php echo Wub_Controller::$url?>www/js/ui.spinner.min.js"></script>
 <script type="text/javascript" src="<?php echo Wub_Controller::$url?>www/js/jquery.wysiwyg.js"></script>
-<script type="text/javascript" src="<?php echo Wub_Controller::$url?>www/js/controls/default.js"></script>
 <script type="text/javascript" src="<?php echo Wub_Controller::$url?>www/js/controls/wysiwyg.image.js"></script>
 <script type="text/javascript" src="<?php echo Wub_Controller::$url?>www/js/controls/wysiwyg.link.js"></script>
 <script type="text/javascript" src="<?php echo Wub_Controller::$url?>www/js/controls/wysiwyg.table.js"></script>
