@@ -165,7 +165,8 @@ class Wub_Memory extends Wub_Editable implements Wub_Notifiable
         return 'Wub_Memory';
     }
     
-    public function getNotifyReferenceID() {
+    public function getNotifyReferenceID()
+    {
         return $this->id;
     }
     
@@ -177,5 +178,16 @@ class Wub_Memory extends Wub_Editable implements Wub_Notifiable
             case 'create':
                 return "A Memory has been created!";
         }
+    }
+    
+    public function getAccount()
+    {
+        static $account = NULL;
+        
+        if (empty($account)) {
+            $account = Wub_Account::getByID($this->owner_id);
+        }
+        
+        return $account;
     }
 }

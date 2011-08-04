@@ -36,6 +36,9 @@ if (Wub_Controller::getAccount() && $context->canEdit()) {
 <div class='colright'>
     <h4>Info</h4>
     <ul>
+        <li>
+            <b>Posted By:</b> <a href='<?php echo $context->getAccount()->getURL(); ?>'><?php echo $context->getAccount()->getFullName(); ?></a>
+        </li>
         <li><b>Permission:</b> <?php echo $context->permission;?></li>
         <li><b>created:</b> <?php echo Wub_Utilities::formatTime($context->date_created);?></li>
         <li><b>edited:</b> <?php echo Wub_Utilities::formatTime($context->date_edited);?></li>
