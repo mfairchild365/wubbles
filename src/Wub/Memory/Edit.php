@@ -3,7 +3,7 @@ class Wub_Memory_Edit extends Wub_Memory
 {
     function __construct($options = array())
     {
-        $this->importance = 20;
+        $this->importance = 35;
         $this->start_date = time();
         $this->end_date   = time();
         
