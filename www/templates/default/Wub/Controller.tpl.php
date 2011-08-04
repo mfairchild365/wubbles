@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<title>Wubbles</title>
+<title>Wubbles Memories</title>
 <link type="text/css" href="<?php echo Wub_Controller::$url?>www/css/main.css" rel="stylesheet" />
 <link type="text/css" href="<?php echo Wub_Controller::$url?>www/css/ajaxForm.css" rel="stylesheet" />
 <link type="text/css" href="<?php echo Wub_Controller::$url?>www/css/commentForm.css" rel="stylesheet" />
@@ -108,7 +108,7 @@
     <div id='contentwraper'>
         <div class='topbar'>
             <div class='title'>
-                <h2>Wubbles</h2>
+                <h2>Wubbles Memories</h2>
             </div>
             <div class='userinfo'>
                 <?php 
