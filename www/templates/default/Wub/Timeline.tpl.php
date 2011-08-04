@@ -12,6 +12,8 @@ $(document).ready(function () {
         "data_source":"<?php echo $context->getJSONurl();?>",
         "min_zoom":15,
         "max_zoom":60, 
+        "icon_folder": "<?php echo Wub_Controller::$url?>www/images/icons/",
+        "show_footer": false,
     });
 });
 </script>
