@@ -57,6 +57,7 @@ class Wub_Controller
         $this->options = $options + $this->options;
         
         try {
+            
             if (!empty($_POST)) {
                 $this->handlePost();
             }

@@ -56,7 +56,7 @@ $routes['/^account\/(?<account_id>[\d]+)\/friends$/i'] = 'Wub_Friendship_List';
 
 $routes['/^account\/list$/i'] = 'Wub_Account_List';
 
-$routes['/^comment\/(?<id>[\d]+)\/(?<action>(delete))$/i'] = 'Wub_Comment';
+$routes['/^comment\/(?<id>[\d]+)\/delete$/i'] = 'Wub_Comment';
 
 $routes['/^memory\/(?<memory_id>[\d]+)\/picture\/(?<id>[\d]+)\/(?<action>(delete))$/i'] = 'Wub_Picture';
 

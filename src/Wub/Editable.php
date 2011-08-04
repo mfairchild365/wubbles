@@ -53,6 +53,17 @@ abstract class Wub_Editable extends Wub_Record implements Wub_Permissionable
             throw new Exception("You do not have permission to edit this!");
         }
         
+        //Check if we are deleting.
+        if (isset($_POST['action']) && $_POST['action'] == 'delete') {
+            if (!$this->canDelete()) {
+                throw new Exception("You do not have permission to delete this.");
+            }
+            
+            $this->delete();
+            
+            Wub_Controller::redirect(Wub_Controller::$url . "success?for=".$this->getTable()."_delete");
+        }
+        
         $this->synchronizeWithArray($_POST);
         
         //set the owner if not set.
@@ -101,16 +112,6 @@ abstract class Wub_Editable extends Wub_Record implements Wub_Permissionable
         }
         
         Wub_Controller::redirect($redirectURL);
-    }
-    
-    function handleAction($options = array())
-    {
-        if ($this->canDelete()) {
-            $this->delete();
-            Wub_Controller::redirect(Wub_Controller::$url . "success?for=".$this->getTable()."_delete");
-        }
-        
-        throw new Exception("You do not have permission to delete this.");
     }
     
     //This function attempts to check if the save button was pressed twice (or more) when creating.

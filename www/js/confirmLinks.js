@@ -5,7 +5,6 @@ function initConfirmLinks()
         var targetUrl  = $(this).attr("href");
         var ajaxDelete = $(this).hasClass('ajaxDelete');
         var parent     = $(this).parent().parent();
-        
         $("#dialog").dialog({
             buttons : {
                 "Confirm" : function() {

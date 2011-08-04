@@ -23,6 +23,7 @@
 <script type="text/javascript" src="<?php echo Wub_Controller::$url?>www/js/controls/wysiwyg.image.js"></script>
 <script type="text/javascript" src="<?php echo Wub_Controller::$url?>www/js/controls/wysiwyg.link.js"></script>
 <script type="text/javascript" src="<?php echo Wub_Controller::$url?>www/js/controls/wysiwyg.table.js"></script>
+<script type="text/javascript" src="<?php echo Wub_Controller::$url?>www/js/confirmDeleteForm.js"></script>
 </head>
 <body>
     <?php echo Wub_Controller::$analytics;?>
@@ -40,6 +41,7 @@
         $('.ui-state-default').click(function(){ $(this).toggleClass('ui-state-active'); });
         initAjaxForms();
         initConfirmLinks();
+        initDeleteForms();
         
         $('.wysiwyg').wysiwyg();
         

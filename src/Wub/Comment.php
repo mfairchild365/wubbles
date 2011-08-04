@@ -11,6 +11,10 @@ class Wub_Comment extends Wub_Editable implements Wub_Notifiable
     {
         return self::getByAnyField('Wub_Comment', 'id', (int)$id);
     }
+    
+    function __construct($options = array()) {
+        parent::__construct($options);
+    }
 
     function insert()
     {

@@ -4,6 +4,7 @@
     $(function() {
         refreshComments();
         initCommentForms();
+        initDeleteForms();
     });
     
     function initCommentForms()
@@ -22,6 +23,7 @@
             success: function(html){
             $("#commentContainer").html(html);
             initConfirmLinks();
+            initDeleteForms();
             }
         });
     }
