@@ -25,6 +25,10 @@ class Wub_Memory_Edit extends Wub_Memory
             throw new Exception("no permission provided");
         }
         
+        if (!in_array($_POST['permission'], array('private', 'public'))) {
+            throw new Exception("That is not a valid permission");
+        }
+        
         if (!isset($_POST['start_date']) || empty($_POST['start_date'])) {
             throw new Exception("no start date provided");
         }

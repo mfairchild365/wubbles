@@ -6,9 +6,7 @@ function get_var($var, $context) {
     
     return null;
 }
-?>
 
-<?php 
 if (!empty($context->id)) {
     ?>
     <div class='options'>
@@ -70,7 +68,8 @@ $(function() {
                 <label for="permission">Permission:</label>
                 <span class='helper'><em>Select the scope of the visibility for this memory.</em></span>
                 <select name="permission">
-                    <option value="private">private</option>
+                    <option value="private" <?php echo (get_var('permission', $context) == "private")?"selected='selected'":"";?>>private</option>
+                    <option value="public" <?php echo (get_var('permission', $context) == "public")?"selected='selected'":"";?>>public</option>
                 </select>
             </li>
         </ul>

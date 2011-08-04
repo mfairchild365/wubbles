@@ -13,6 +13,10 @@ class Wub_Comment_Edit extends Wub_Comment
             throw new Exception("You need to select and object to comment on.");
         }
         
+        if (!Wub_Controller::getAccount()) {
+            throw new Exception("You must be logged in to do this.");
+        }
+        
         $this->class        = $_POST['class'];
         $this->reference_id = $_POST['reference_id'];
         

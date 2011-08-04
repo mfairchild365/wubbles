@@ -55,6 +55,7 @@
     <div id='commentContainer'>
         Loading...
     </div>
+    <?php if (Wub_Controller::getAccount()):?>
     <form name="input" class='commentForm' action="<?php echo Wub_Controller::$url; ?>comment/edit" method="post" enctype="multipart/form-data">
         <fieldset>
             <legend>Add A Comment</legend>
@@ -71,4 +72,5 @@
             <input type="submit" value="Submit" class='submit'/>
         </fieldset>
     </form>
+    <?php endif;?>
 </div>

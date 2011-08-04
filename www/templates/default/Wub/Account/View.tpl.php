@@ -29,10 +29,8 @@ if (Wub_Controller::getAccount() && $context->id != Wub_Controller::getAccount()
     <h4>Memories shared with you:</h4>
     <ul>
         <?php 
-        if (Wub_Controller::getAccount()) {
-            foreach (Wub_Memory_List::getDynamicForAccount($context->id) as $memory) {
-                echo "<li><a href='" . $memory->getURL() . "'>" . $memory->subject . "</a></li>";
-            }
+        foreach (Wub_Memory_List::getDynamicForAccount($context->id) as $memory) {
+            echo "<li><a href='" . $memory->getURL() . "'>" . $memory->subject . "</a></li>";
         }
         ?>
     </ul>
