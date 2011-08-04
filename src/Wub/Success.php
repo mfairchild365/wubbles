@@ -80,6 +80,12 @@ class Wub_Success
                 case "activate":
                     $this->message = "Your account has been activated, and you have been logged in.";
                     break;
+                case "forgot_password":
+                    $this->message = "An Email has been sent to the email address associated with your account.  Please check it to finish resetting your password.";
+                    break;
+                case "reset_password":
+                    $this->message = "Your password has been reset.";
+                    break;
                 default:
                     $this->message = "There was a success for something!  dunno what...";
                     break;

@@ -10,6 +10,8 @@ $routes['/^login$/i'] = 'Wub_Account_Login';
 //Logout
 $routes['/^logout$/i'] = 'Wub_Account_Logout';
 
+$routes['/^resetPassword$/i'] = 'Wub_Account_ForgotPassword';
+
 //Register
 $routes['/^register$/i'] = 'Wub_Account_Edit';
 
@@ -24,6 +26,8 @@ $routes['/^account\/(?<account_id>[\d]+)\/memories\/timeline$/i'] = 'Wub_Memory_
 $routes['/^account\/(?<account_id>[\d]+)\/memories$/i'] = 'Wub_Memory_List';
 
 $routes['/^account\/(?<account_id>[\d]+)\/activate$/i'] = 'Wub_Account_Activate';
+
+$routes['/^account\/(?<account_id>[\d]+)\/edit\/resetPassword$/i'] = 'Wub_Account_ForgotPassword';
 
 //Success
 $routes['/^success$/i'] = 'Wub_Success';

@@ -99,15 +99,33 @@ class Wub_Account extends Wub_Editable
         return $this->getURL() . "/activate?code=" . $this->activation_code;
     }
     
+    public function getPasswordResetURL()
+    {
+        return $this->getURL() . "/edit/password?code=" . $this->activation_code;
+    }
+    
     public function sendActivationCode()
     {
-        $this->activation_code = md5(time() . $this->id);
+        $this->activation_code = md5(time() . rand(1,300));
         
         $this->save();
         
         $subject = "Wubbles Memories: Activate Your Account";
         
         $body = "Hello, please activate your account by following this url: " . $this->getActivationURL();
+        
+        Wub_Email::sendEmail($this->email, $subject, $body);
+    }
+    
+    public function sendResetPassword()
+    {
+        $this->activation_code = md5(time() . rand(1,300));
+        
+        $this->save();
+        
+        $subject = "Wubbles Memories: Reset your password.";
+        
+        $body = "Hello, please reset your password by following this url: " . $this->getPasswordResetURL();
         
         Wub_Email::sendEmail($this->email, $subject, $body);
     }

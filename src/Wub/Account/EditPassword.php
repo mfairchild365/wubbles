@@ -5,10 +5,12 @@ class Wub_Account_EditPassword extends Wub_Account
     {
          parent::__construct($options);
          
-         Wub_Controller::requireLogin();
-         
-         if (!$this->canEdit()) {
-             throw new Exception("You do not have permission to edit this!");
+         if (!isset($options['code']) || $options['code'] != $this->activation_code) {
+             Wub_Controller::requireLogin();
+             
+             if (!$this->canEdit()) {
+                 throw new Exception("You do not have permission to edit this!");
+             }
          }
     }
     
@@ -23,8 +25,10 @@ class Wub_Account_EditPassword extends Wub_Account
             throw new Exception("You must fill out your password");
         }
         
-        $_POST['password'] = sha1($_POST['password']);
+        $this->password = sha1($_POST['password']);
+        $this->activation_code = md5(time() . rand(1,300));
+        $this->save();
         
-        parent::handlePost($options);
+        Wub_Controller::redirect(Wub_Controller::$url."success?for=reset_password");
     }
 }

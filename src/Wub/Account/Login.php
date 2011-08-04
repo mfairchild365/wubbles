@@ -20,9 +20,7 @@ class Wub_Account_Login extends Wub_Account
         }
         
         if (empty($account->activated) || !$account->activated) {
-            if (empty($account->activation_code) || !$account->activation_code) {
-                $account->sendActivationCode();
-            }
+            $account->sendActivationCode();
             throw new Exception("You must activate your account before you can log in.  Please check your email for an activation link.  We sent the email from " . Wub_Controller::$emailAddress);
         }
         

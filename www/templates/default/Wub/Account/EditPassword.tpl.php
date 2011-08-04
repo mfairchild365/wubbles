@@ -7,6 +7,11 @@ function get_var($var, $context) {
     return null;
 }
 
+$code = "";
+if (isset($_GET['code'])) {
+    $code = "?code=" . $_GET['code'];
+}
+
 if (!empty($context->id) && Wub_Controller::getAccount() && $context->canEdit()) {
     ?>
     <div class='options'>
@@ -16,7 +21,7 @@ if (!empty($context->id) && Wub_Controller::getAccount() && $context->canEdit())
 }
 ?>
 
-<form  name="input" class='ajaxForm' action="<?php echo $context->getEditURL(); ?>/password" method="post">
+<form  name="input" class='ajaxForm' action="<?php echo $context->getEditURL(); ?>/password<?php echo $code ?>" method="post">
     <fieldset>
     <legend>Edit Password</legend>
         <ul>

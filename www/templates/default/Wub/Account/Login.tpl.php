@@ -8,3 +8,4 @@
         <input type="submit" value="Submit" />
     </fieldset>
 </form> 
+You must <a href='<?php echo Wub_Controller::$url?>register'>register</a> before posting content.  Did you <a href='<?php echo Wub_Controller::$url?>resetPassword'>forget</a> your password?.
