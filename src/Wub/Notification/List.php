@@ -10,17 +10,9 @@ class Wub_Notification_List extends Wub_List
         
         Wub_Controller::requireLogin();
         
-        if (!isset($options['account_id'])) {
-            throw new Exception("No account specified.", 404);
-        }
-        
-        if ($options['account_id'] !== Wub_Controller::getAccount()->id) {
-            throw new Exception("You do not have permission to view this.");
-        }
-        
         $options['returnArray'] = true;
         
-        $options['array'] = self::getAllByAccount($options['account_id'], $options);
+        $options['array'] = self::getAllByAccount(Wub_Controller::getAccount()->id, $options);
         
         parent::__construct($options);
     }
