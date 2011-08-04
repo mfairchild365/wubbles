@@ -8,8 +8,8 @@ continue to add memories as you continue though life.</p>
 <?php 
 if (!empty(Wub_Controller::$example_id)):?>
     <div class='example'>
-        <p>We have set up an <a href='<?php echo Wub_Controller::$url?>/account/<?php echo Wub_Controller::$example_id?>'>example</a> account for you to look at.  
-        Check out the <a href='<?php echo Wub_Controller::$url?>/account/<?php echo Wub_Controller::$example_id?>/timeline'>timeline</a>.</p>
+        <p>We have set up an <a href='<?php echo Wub_Controller::$url?>account/<?php echo Wub_Controller::$example_id?>'>example</a> account for you to look at.  
+        Check out the <a href='<?php echo Wub_Controller::$url?>account/<?php echo Wub_Controller::$example_id?>/timeline'>timeline</a>.</p>
     </div>
 <?php endif;?>
 
