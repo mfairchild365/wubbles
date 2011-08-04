@@ -48,6 +48,8 @@ class Wub_Controller
     
     public static $footerAd = "";
     
+    public static $example_id = NULL;
+    
     public $actionable = array();
 
     function __construct($options = array())
