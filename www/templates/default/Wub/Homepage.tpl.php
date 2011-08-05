@@ -22,6 +22,7 @@ if (!empty(Wub_Controller::$example_id)):?>
         <li>Comments on both memories and photos.</li>
         <li>A time line of your memories</li>
         <li>Receive notifications when friends share memories with you or when someone comments on your memories</li>
+        <li>A social experiance.  Add your freinds and family, and recieve updates when they add content.</li>
     </ul>
 </div>
 
