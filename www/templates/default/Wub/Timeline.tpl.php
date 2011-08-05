@@ -4,6 +4,7 @@
 
 <div class='options'>
     <a href='<?php echo $context->account->getURL();?>' class='button'>Back to profile</a>
+    <div style='clear:both'></div>
 </div>
 
 <script type="text/javascript">
