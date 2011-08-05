@@ -1,5 +1,5 @@
 <?php
-class Wub_Friendship extends Wub_Record
+class Wub_Friendship extends Wub_Record implements Wub_Notifiable
 {
     public $id;
     
@@ -69,5 +69,34 @@ class Wub_Friendship extends Wub_Record
         }
         
         return Wub_Account::getByID($friend_id);
+    }
+    
+    public function getNotifyMembersList()
+    {
+        return new ArrayIterator(array(Wub_Account::getByID($this->sender_id), Wub_Account::getByID($this->reciever_id)));
+    }
+    
+    public function getNotifyClass()
+    {
+        return 'Wub_Friendship';
+    }
+    
+    public function getNotifyReferenceID() {
+        return $this->id;
+    }
+    
+    public function getNotifyText($saveType)
+    {
+        switch ($saveType) {
+            case 'save':
+                return "Friendship has been updated.";
+            case 'create':
+                return "A Friend request has been sent!";
+        }
+    }
+    
+    function getURL()
+    {
+        return Wub_Controller::$url . "friendship/" . $this->id;
     }
 }

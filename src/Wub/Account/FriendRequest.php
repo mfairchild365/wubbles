@@ -54,7 +54,7 @@ class Wub_Account_FriendRequest extends Wub_Account
         $friendship->date_edited = time();
         $friendship->status      = "sent";
         
-        if (!$friendship->insert()) {
+        if (!$friendship->save()) {
             throw new Exception("There was an error saving.");
         }
         
