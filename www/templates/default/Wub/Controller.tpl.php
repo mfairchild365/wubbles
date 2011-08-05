@@ -106,22 +106,21 @@
         return false;
     }
     </script>
-    
+    <div class='userinfo'>
+        <?php 
+        if ($user) {
+            require_once('UserInfo/Loggedin.tpl.php');
+        } else {
+            require_once('UserInfo/Loggedout.tpl.php');
+        }
+        ?>
+    </div>
     <div id='contentwraper'>
         <div class='topbar'>
             <div class='title'>
                 <h2>Wubbles Memories</h2>
             </div>
-            <div class='userinfo'>
-                <?php 
-                if ($user) {
-                    require_once('UserInfo/Loggedin.tpl.php');
-                } else {
-                    require_once('UserInfo/Loggedout.tpl.php');
-                }
-                ?>
-            </div>
-            <div style='clear:both'></div>
+            
         </div>
         <?php 
         if ($user) {

@@ -1,6 +1,7 @@
 body {
     background-color:#000;
-    color:blue;
+    color:white;
+    margin-top:0;
 }
 
 h4 {
@@ -69,22 +70,34 @@ h4 {
 }
 
 .userinfo {
-    float:right;
-    width: 250;
+    width: 100%;
     height: 20px;
     text-align:right;
     background-color: #CCC2C2;
+    margin-bottom: 8px;
+    padding:2px;
+    color: black;
 }
 
-.title {
-    float:left;
-    position:absolute;
-    top:5px;
+.userinfo a {
+    color: black;
+}
+
+.userinfo a:visted {
+    color: black;
+}
+
+.userinfo a:hover {
+    color: red;
+}
+
+.title h2 {
+    margin-top: 5px;
+    margin-botton: 5px;
 }
 
 .topbar {
     width: 100%;
-    height: 50px;
 }
 
 #maincontent {
