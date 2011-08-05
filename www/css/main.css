@@ -209,3 +209,13 @@ h4 {
     text-align:right;
     width:100%;
 }
+
+.editMemory .left {
+    width:75%;
+    float:left;
+}
+
+.editMemory .right {
+    float:left;
+    width:25%;
+}
