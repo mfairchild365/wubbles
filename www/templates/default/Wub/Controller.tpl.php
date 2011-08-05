@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta name="Description" content="A place for you to upload and share your memories.">
 <title>Wubbles Memories</title>
 <link type="text/css" href="<?php echo Wub_Controller::$url?>www/css/main.css" rel="stylesheet" />
 <link type="text/css" href="<?php echo Wub_Controller::$url?>www/css/ajaxForm.css" rel="stylesheet" />
