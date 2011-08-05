@@ -11,7 +11,12 @@ if (!empty($context->id)) {
     ?>
     <div class='options'>
         <a href='<?php echo $context->getURL();?>' class='button'>View</a>
-        <a href='<?php echo $context->getURL();?>/delete' class='button confirmLink'>Delete</a>
+        <form class='deleteForm' action='<?php echo $context->getEditURL();?>' method='post'>
+            <input type='hidden' name='action' value='delete'/>
+            <input type='hidden' name='_class' value='Wub_Memory_Edit'/>
+            <input type='hidden' name='id' value='<?php echo $context->id;?>'/>
+            <input type='submit' value='Delete' class='delete'/>
+        </form>;
     </div>
     <?php 
 }

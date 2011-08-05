@@ -9,13 +9,12 @@
                     $delete = "";
                     if ($comment->canDelete()) {
                         $delete = "
-                        <form id='comment_" . $comment->id . "' name='input' class='deleteForm' action='" . Wub_Controller::$url . "comment/" . $comment->id . "/delete' method='post'>
+                        <form id='comment_" . $comment->id . "' name='input' class='deleteForm ajaxDelete' action='" . Wub_Controller::$url . "comment/" . $comment->id . "/delete' method='post'>
                             <input type='hidden' name='action' value='delete'/>
                             <input type='hidden' name='_class' value='Wub_Comment'/>
                             <input type='hidden' name='id' value='" . $comment->id . "'/>
                             <input type='submit' value='Delete' class=''/>
                         </form>";
-                        
                     }
                     echo "<li class='info'>
                               <b>" . $owner->getFullName() . "</b>

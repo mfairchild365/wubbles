@@ -36,8 +36,6 @@ $routes['/^mymemories$/i'] = 'Wub_Memory_MyMemories';
 
 $routes['/^memory\/((?<id>[\d]+)\/)?edit$/i'] = 'Wub_Memory_Edit';
 
-$routes['/^memory\/(?<id>[\d]+)\/(?<action>(delete))/i'] = 'Wub_Memory';
-
 $routes['/^comment\/((?<id>[\d]+)\/)?edit$/i'] = 'Wub_Comment_Edit';
 
 $routes['/^memory\/(?<id>[\d]+)$/i'] = 'Wub_Memory_View';
@@ -58,14 +56,12 @@ $routes['/^account\/list$/i'] = 'Wub_Account_List';
 
 $routes['/^comment\/(?<id>[\d]+)\/delete$/i'] = 'Wub_Comment';
 
-$routes['/^memory\/(?<memory_id>[\d]+)\/picture\/(?<id>[\d]+)\/(?<action>(delete))$/i'] = 'Wub_Picture';
-
 $routes['/^comment\/list$/i'] = 'Wub_Comment_List';
 
 $routes['/^account\/(?<id>[\d]+)\/request\/(?<type>(remove|block|send|accept|reject))$/i'] = 'Wub_Account_FriendRequest';
 
 $routes['/^notifications$/i'] = 'Wub_Notification_List';
 
-$routes['/^notification\/(?<id>[\d]+)\/(?<action>(delete))$/i'] = 'Wub_Notification';
+$routes['/^notification\/(?<id>[\d]+)\/delete$/i'] = 'Wub_Notification';
 
 return $routes;

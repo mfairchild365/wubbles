@@ -151,7 +151,12 @@ class Wub_Controller
         }
         
         $class = new $_POST['_class']($this->options);
-        $class->handlePost($_POST);
+        
+        if (isset($_POST['action']) && $_POST['action'] == 'delete') {
+            $class->handleDelete($_POST);
+        } else {
+            $class->handlePost($_POST);
+        }
     }
     
     /**

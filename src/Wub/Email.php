@@ -12,8 +12,10 @@ class Wub_Email
                     </body>
                     </html>";
         
-        include('Mail.php');
-        include('Mail/mime.php');
+        if (!class_exists('Mail')) {
+            include('Mail.php');
+            include('Mail/mime.php');
+        }
         
         // Constructing the email
         $sender = Wub_Controller::$emailAddress;

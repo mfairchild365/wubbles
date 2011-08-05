@@ -41,10 +41,14 @@ function handleDeleteResponse(responseText, statusText, xhr, $form)
     var div = ($(responseText).find('#maincontent')[0]);
     
     if ($(div).find('#success').length > 0) {
-        var parent = $($form).parent().parent();
-        $(parent).hide('slow', function() {
-            $(parent).remove();
-        })
+    	if ($($form).hasClass('ajaxDelete')) {
+	        var parent = $($form).parent().parent();
+	        $(parent).hide('slow', function() {
+	            $(parent).remove();
+	        })
+    	} else {
+    		$('#maincontent').html($(div).find('#success'));
+    	}
     }
 
     return false;

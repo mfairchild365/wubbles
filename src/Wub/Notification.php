@@ -152,8 +152,10 @@ class Wub_Notification extends Wub_Record implements Wub_Permissionable
                     </body>
                     </html>";
         
-        include('Mail.php');
-        include('Mail/mime.php');
+        if (!class_exists('Mail')) {
+            include('Mail.php');
+            include('Mail/mime.php');
+        }
         
         // Constructing the email
         $sender = Wub_Controller::$emailAddress;
@@ -190,6 +192,18 @@ class Wub_Notification extends Wub_Record implements Wub_Permissionable
         
         if (Wub_Account::getByID($this->to_id)->email_notifications) {
             $this->sendEmail();
+        }
+    }
+    
+    function handleDelete() {
+        if (isset($_POST['action']) && $_POST['action'] == 'delete') {
+            if (!$this->canDelete()) {
+                throw new Exception("You do not have permission to delete this.");
+            }
+            
+            $this->delete();
+            
+            Wub_Controller::redirect(Wub_Controller::$url . "success?for=".$this->getTable()."_delete");
         }
     }
 }
