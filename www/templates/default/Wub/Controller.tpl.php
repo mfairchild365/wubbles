@@ -155,7 +155,7 @@
             <?php echo Wub_Controller::$footerAd; ?> 
         </div>
         <div class='text'>
-            <p>This site was originally created by Michael Fairchild.  Please know that no warranty of any kind if provided.  If you find any bugs or have any questions, please send an email to the <a href='mailto:mfairchild365+wubbles@gmail.com'>web master</a> </p> 
+            <p>This site was originally created by Michael Fairchild.  Please know that no warranty of any kind is provided.  If you find any bugs or have any questions, please send an email to the <a href='mailto:mfairchild365+wubbles@gmail.com'>web master</a> </p> 
             <p>This site was inspired by Amy and it is the result of a birthday present to her. <span style='font-size:50%'>&lt;3</span></p>
         </div>
         <div style='clear:both'></div>
