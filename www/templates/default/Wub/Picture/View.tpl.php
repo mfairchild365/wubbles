@@ -16,3 +16,9 @@
         <?php echo $context->caption;?>
     </div>
 </div>
+
+<?php if ($context->getMemory()->permission == 'public'):?>
+    <div class='share'>
+       <?php echo Wub_Controller::$share?>
+    </div>
+<?php endif;?>

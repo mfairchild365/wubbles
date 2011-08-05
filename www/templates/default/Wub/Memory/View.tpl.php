@@ -68,3 +68,11 @@ if (Wub_Controller::getAccount() && $context->canEdit()) {
         </li>
     </ul>
 </div>
+
+<div style='clear:both'></div>
+
+<?php if ($context->permission == 'public'):?>
+    <div class='share'>
+       <?php echo Wub_Controller::$share?>
+    </div>
+<?php endif;?>

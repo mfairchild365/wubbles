@@ -204,3 +204,8 @@ h4 {
 .footer .ad {
     float:right;
 }
+
+.share {
+    text-align:right;
+    width:100%;
+}

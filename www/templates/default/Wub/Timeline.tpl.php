@@ -20,3 +20,7 @@ $(document).ready(function () {
 </script>
 
 <div id='timeline'></div>
+
+<div class='share'>
+   <?php echo Wub_Controller::$share?>
+</div>

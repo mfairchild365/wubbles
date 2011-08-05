@@ -14,6 +14,7 @@ if (Wub_Controller::getAccount() && $context->canEdit()) {
     ?>
     <div class='options'>
         <a href='<?php echo $context->getMemory()->getURL();?>' class='button'>Back to Memory</a>
+        <div style='clear:both'></div>
     </div>
     <?php 
 }

@@ -26,8 +26,6 @@ if (!empty(Wub_Controller::$example_id)):?>
     </ul>
 </div>
 
-
-
 <p>This is still a work in progress.</p>
 Todo:
 <ul>
@@ -36,3 +34,7 @@ Todo:
     <li>Family support</li>
     <li>Category Support</li>
 </ul>
+
+<div class='share'>
+   <?php echo Wub_Controller::$share?>
+</div>

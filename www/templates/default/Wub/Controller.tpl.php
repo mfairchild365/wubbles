@@ -24,6 +24,7 @@
 <script type="text/javascript" src="<?php echo Wub_Controller::$url?>www/js/controls/wysiwyg.link.js"></script>
 <script type="text/javascript" src="<?php echo Wub_Controller::$url?>www/js/controls/wysiwyg.table.js"></script>
 <script type="text/javascript" src="<?php echo Wub_Controller::$url?>www/js/confirmDeleteForm.js"></script>
+<script type="text/javascript">var switchTo5x=true;</script><script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script><script type="text/javascript">stLight.options({publisher:'7c3847b8-c7c5-44cc-9bce-f65fa168f4b9'});</script>
 </head>
 <body>
     <?php echo Wub_Controller::$analytics;?>

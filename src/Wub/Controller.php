@@ -46,6 +46,8 @@ class Wub_Controller
     
     public static $captcha_privateKey = "";
     
+    public static $share = "";
+    
     public static $footerAd = "";
     
     public static $example_id = NULL;
