@@ -148,8 +148,16 @@
         </div>
         <div id="dialog" title="Dialog">
         </div>
-        <hr />
-        For Amy. &lt;3. Created by Michael Fairchild
+    </div>
+    <div class='footer'>
+        <div class='ad'>
+            <?php echo Wub_Controller::$footerAd; ?> 
+        </div>
+        <div class='text'>
+            <p>This site was originally created by Michael Fairchild.  Please know that no warranty of any kind if provided.  If you find any bugs or have any questions, please send an email to the <a href='mfairchild365+wubbles@gmail.com'>web master</a> </p> 
+            <p>Note that this vision for this site was inspired by Amy and it is the result of a birthday present to her. <span style='font-size:50%'>&lt;3</span></p>
+        </div>
+        <div style='clear:both'></div>
     </div>
 </body>
 </html>
