@@ -10,6 +10,7 @@
     }
     ?>
     <a href='<?php echo $context->getURL();?>/timeline' class='button'>Timeline</a>
+    <div style='clear:both'></div>
 </div>
 <?php
 

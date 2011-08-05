@@ -16,6 +16,7 @@ if (!empty($context->id) && Wub_Controller::getAccount() && $context->canEdit())
     ?>
     <div class='options'>
         <a href='<?php echo $context->getURL();?>/edit' class='button'>Edit Account</a>
+        <div style='clear:both'></div>
     </div>
     <?php 
 }

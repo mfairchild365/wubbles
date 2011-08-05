@@ -11,6 +11,7 @@ if (!empty($context->id) && Wub_Controller::getAccount() && $context->canEdit())
     ?>
     <div class='options'>
         <a href='<?php echo $context->getURL();?>/edit/password' class='button'>Change Passwordt</a>
+        <div style='clear:both'></div>
     </div>
     <?php 
 }

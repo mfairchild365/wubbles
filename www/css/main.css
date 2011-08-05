@@ -19,6 +19,19 @@ h4 {
     border-style:none !important;
 }
 
+.ajaxDeleteButton {
+    float: right;
+    border-style:solid;
+    border-width:1px;
+    border-color:black;
+    background-color: grey;
+    color:white;
+}
+
+.ajaxDeleteButton:hover {
+    border-color:red;
+}
+
 .weaponslots, .armourslots {
     display:none;
 }
@@ -82,8 +95,6 @@ h4 {
 
 .options {
     width: 98%;
-    padding: 10px;
-    height: 20px;
     background: #D8D8D8;
     border-style:solid;
     border-width:1px;
@@ -96,6 +107,7 @@ h4 {
     color: black;
     background: #D8D8D8;
     border: 2px solid #686868;
+    float: left;
 }
 
 .colleft {
@@ -136,6 +148,7 @@ h4 {
     margin: 0;
     padding: 0;
     text-align:center;
+    min-height:322px;
 }
 
 .pictureCatpion {

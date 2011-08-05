@@ -15,8 +15,9 @@ if (!empty($context->id)) {
             <input type='hidden' name='action' value='delete'/>
             <input type='hidden' name='_class' value='Wub_Memory_Edit'/>
             <input type='hidden' name='id' value='<?php echo $context->id;?>'/>
-            <input type='submit' value='Delete' class='delete'/>
-        </form>;
+            <input type='submit' value='Delete' class='button'/>
+        </form>
+        <div style='clear:both'></div>
     </div>
     <?php 
 }

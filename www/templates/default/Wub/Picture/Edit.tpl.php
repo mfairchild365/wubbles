@@ -20,11 +20,12 @@ function get_var($var, $context) {
             <input type='hidden' name='action' value='delete'/>
             <input type='hidden' name='_class' value='Wub_Picture_Edit'/>
             <input type='hidden' name='id' value='<?php echo $context->id;?>'/>
-            <input type='submit' value='Delete' class='delete'/>
+            <input type='submit' value='Delete' class='button'/>
         </form>
         <?php 
     }
     ?>
+    <div style='clear:both'></div>
 </div>
 
 <form name="input" class='ajaxForm' id='memoryForm' action="<?php echo $context->getEditURL(); ?>" method="post" enctype="multipart/form-data">

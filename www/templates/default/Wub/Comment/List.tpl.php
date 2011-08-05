@@ -13,14 +13,15 @@
                             <input type='hidden' name='action' value='delete'/>
                             <input type='hidden' name='_class' value='Wub_Comment'/>
                             <input type='hidden' name='id' value='" . $comment->id . "'/>
-                            <input type='submit' value='Delete' class=''/>
+                            <input type='submit' value='Delete' class='ajaxDeleteButton'/>
                         </form>";
                     }
                     echo "<li class='info'>
+                              " . $delete . "
                               <b>" . $owner->getFullName() . "</b>
                               <em><a href='" . $owner->getURL() . "'>$owner->username</a></em>
                               <em>On: " . Wub_Utilities::formatTime($comment->date_created) . "</em>
-                              " . $delete . "
+                              <div style='clear:both;'></div>
                           </li>";
                     echo "<li class='details'>" . $comment->comment . "</li>";
                 echo "</ul>";

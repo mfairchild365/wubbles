@@ -8,6 +8,7 @@
         <?php 
     }
     ?>
+    <div style='clear:both'></div>
 </div>
 <div class='picture'>
     <img src='<?php echo $context->getPictureURL(); ?>' />
