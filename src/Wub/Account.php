@@ -19,6 +19,8 @@ class Wub_Account extends Wub_Editable
     
     public $activation_code;
     
+    public $timezone;
+    
     public static function getByID($id)
     {
         return self::getByAnyField('Wub_Account', 'id', (int)$id);

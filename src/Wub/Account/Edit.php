@@ -51,6 +51,10 @@ class Wub_Account_Edit extends Wub_Account
             throw new Exception("This username is already in use.");
         }
         
+        if (!isset($_POST['timezone']) || empty($_POST['timezone'])) {
+            throw new Exception("You must select your timezone");
+        }
+        
         $this->email_notifications = 1;
         if ((int)$_POST['email_notifications'] == 0) {
             $this->email_notifications = 0;
