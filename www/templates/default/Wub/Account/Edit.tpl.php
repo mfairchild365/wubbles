@@ -179,7 +179,7 @@ if (!empty($context->id) && Wub_Controller::getAccount() && $context->canEdit())
                         if (get_var('timezone', $context) == $key) {
                             $selected = "selected='selected'";
                         }
-                        echo "<option value='" . $key . " ' " . $selected . ">" . $value . "</option>";
+                        echo "<option value='" . $key . "' " . $selected . ">" . $value . "</option>";
                     }
                     ?>
                 </select>
