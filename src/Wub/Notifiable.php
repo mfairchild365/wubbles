@@ -12,7 +12,7 @@ interface Wub_Notifiable
      * 
      * $saveType will either be 'create' or 'save'
      */
-    public function getNotifyText($saveType);
+    public function getNotifyText($saveType, $toID);
     
     public function getNotifyReferenceID();
     

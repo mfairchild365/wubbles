@@ -155,7 +155,7 @@ class Wub_Picture extends Wub_Editable implements Wub_Notifiable
         return $this->id;
     }
     
-    public function getNotifyText($saveType)
+    public function getNotifyText($saveType, $toID)
     {
         switch ($saveType) {
             case 'save':

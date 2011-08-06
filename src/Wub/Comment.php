@@ -84,11 +84,21 @@ class Wub_Comment extends Wub_Editable implements Wub_Notifiable
         return $this->id;
     }
     
-    public function getNotifyText($saveType)
+    public function getNotifyText($saveType, $toID)
     {
         switch ($saveType) {
             case 'create':
-                return "A Comment has been added!";
+                switch ($this->class) {
+                    case 'Wub_Memory':
+                        $post = "the memory - " . $this->getReference()->subject;
+                        break;
+                    case 'Wub_Picture':
+                        $post = "the picture - " . $this->getReference()->title;
+                        break;
+                    default:
+                        $post = 'a post that you are part of.';
+                }
+                return Wub_Account::getByID($this->owner_id)->getFullName() . " has posted a comment on $post";
         }
     }
     

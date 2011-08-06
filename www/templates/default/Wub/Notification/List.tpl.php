@@ -18,7 +18,7 @@
                         <em><?php echo Wub_Utilities::formatTime($notification->date_created);?></em>
                     </li>
                     <li class='notificationDetails'>
-                        <?php echo $reference->getNotifyText($notification->save_type);?> <br/>
+                        <?php echo $reference->getNotifyText($notification->save_type, $notification->to_id);?> <br/>
                         <a href='<?php echo $reference->getURL();?>'>View it now!</a>
                     </li>
                 </ul>

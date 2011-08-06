@@ -85,13 +85,18 @@ class Wub_Friendship extends Wub_Record implements Wub_Notifiable
         return $this->id;
     }
     
-    public function getNotifyText($saveType)
+    public function getNotifyText($saveType, $toID)
     {
+        $account = $this->getFriendForAccount($toID);
         switch ($saveType) {
             case 'save':
-                return "Friendship has been updated.";
+                if ($this->status = 'accepted') {
+                    return $account->getFullName() . " has accepted your friend request!";
+                }
+                
+                return $account->getFullName() . " has denied your friend request!";
             case 'create':
-                return "A Friend request has been sent!";
+                return $account->getFullName() . " has sent you a request!";
         }
     }
     

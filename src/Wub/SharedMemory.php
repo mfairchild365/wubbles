@@ -91,11 +91,11 @@ class Wub_SharedMemory extends Wub_Editable implements Wub_Notifiable
         return $this->id;
     }
     
-    public function getNotifyText($saveType)
+    public function getNotifyText($saveType, $toID)
     {
         switch ($saveType) {
             case 'create':
-                return "A Memory is now shared with you!";
+                return Wub_Account::getByID($this->getMemory()->owner_id)->getFullName() . " has shared their memory '" . $this->getMemory()->subject . "' with you!";
         }
     }
     

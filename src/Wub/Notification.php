@@ -82,7 +82,7 @@ class Wub_Notification extends Wub_Record implements Wub_Permissionable
         $notification = new Wub_Notification();
         $notification->reference_class = $referenceClass;
         $notification->reference_id    = $referenceID;
-        $notification->save_type     = $saveType;
+        $notification->save_type       = $saveType;
         $notification->to_id           = $toID;
         $notification->date_created    = time();
         $notification->read            = 0;
@@ -145,7 +145,7 @@ class Wub_Notification extends Wub_Record implements Wub_Permissionable
                     <body>
                       <p>Hello, " .  $account->getFullName() . "</p>
                       <div>
-                      " . $reference->getNotifyText($this->save_type) . " <br />
+                      " . $reference->getNotifyText($this->save_type, $this->to_id) . " <br />
                       <a href='" . $reference->getURL() . "'>View it now!</a>
                       </div>
                       <em>Note: You can dissable emails from for profile on Wubbles.</em>
