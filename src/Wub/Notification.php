@@ -148,7 +148,7 @@ class Wub_Notification extends Wub_Record implements Wub_Permissionable
                       " . $reference->getNotifyText($this->save_type, $this->to_id) . " <br />
                       <a href='" . $reference->getURL() . "'>View it now!</a>
                       </div>
-                      <em>Note: You can dissable emails from for profile on Wubbles.</em>
+                      <em>Note: You can dissable emails from your profile on Wubbles.</em>
                     </body>
                     </html>";
         
