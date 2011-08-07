@@ -30,7 +30,7 @@ $(function() {
         changeYear: true,
         dateFormat: 'yy-mm-dd',
     });
-
+    
     $( "#importanceSlider" ).slider({
         range: "min",
         value: 20,
@@ -44,14 +44,18 @@ $(function() {
     $('#ongoing').bind('click', function() {
         if ($('#ongoing').is(':checked')) {
             $('#end_date').hide();
-            $('#end_date').val(0);
+            $('#end_date').val(1);
             return;
         }
 
         $('#end_date').datepicker("setDate" , 'yy-mm-dd');
         $('#end_date').show();
     });
-  
+
+    <?php if ($context->end_date == 1):?>
+    $('#end_date').val(1);
+    $('#end_date').hide();
+    <?php endif;?>
 });
 </script>
 
@@ -72,8 +76,14 @@ $(function() {
                     </li>
                     <li>
                         <label for="subject">End Date</label>
-                        <input type="checkbox" id='ongoing' name="ongoing" value="0" />Ongoing<br />
-                        <input type="text" class='datepicker' id='end_date' name="end_date" value="<?php echo date('Y-m-d', get_var('end_date', $context));;?>"/>
+                        <input type="checkbox" id='ongoing' name="ongoing" value="0" <?php echo (get_var('end_date', $context) == 1)?"checked='checked'":"";?>/>Ongoing<br />
+                        <?php 
+                        $enddate = 0;
+                        if (get_var('end_date', $context) !== 1) {
+                            $enddate = date('Y-m-d', get_var('end_date', $context));
+                        }
+                        ?>
+                        <input type="text" class='datepicker' id='end_date' name="end_date" value="<?php echo $enddate?>"/>
                     </li>
                     <li>
                         <label for="details">Details</label>

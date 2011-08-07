@@ -48,8 +48,8 @@ class Wub_Memory_Edit extends Wub_Memory
         $_POST['start_date'] = strtotime($_POST['start_date']);
         
         
-        if ($_POST['end_date'] == 0) {
-            $this->end_date = 0;
+        if ($_POST['end_date'] == 1) {
+            $this->end_date = 1;
         } else {
             $_POST['end_date'] = strtotime($_POST['end_date']);
             

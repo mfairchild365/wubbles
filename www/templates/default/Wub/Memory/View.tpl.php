@@ -27,7 +27,14 @@ if (Wub_Controller::getAccount() && $context->canEdit()) {
 
 <div class='colmid'>
     <div class='memoryDate'>
-        From: <?php echo date('M-d-Y',  $context->start_date);?> To:  <?php echo date('M-d-Y', $context->end_date);?>
+        From: <?php echo date('M-d-Y',  $context->start_date);?> 
+        To:  <?php 
+        if ($context->end_date == 1) {
+            echo " Ongoing";
+        } else {
+            echo date('M-d-Y', $context->end_date);
+        }
+        ?>
     </div>
     <h4>Details:</h4>
     <div class='memoryDetails'><?php echo html_entity_decode($context->details)?></div>

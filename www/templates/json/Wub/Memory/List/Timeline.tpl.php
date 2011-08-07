@@ -18,7 +18,15 @@ foreach($context->getRawObject() as $memory) {
     $formattedMemory['title']       = $memory->subject;
     $formattedMemory['description'] = 'Click the link to view more details, photos and comments regarding this memory.';
     $formattedMemory['startdate']   = date('Y-m-d H:i:s', $memory->start_date);
-    $formattedMemory['enddate']     = date('Y-m-d H:i:s', $memory->end_date);
+    
+    //handle on-going.
+    if ($memory->end_date == 1) {
+        $formattedMemory['enddate'] = date('Y-m-d H:i:s', time());
+        $formattedMemory['title']   = $formattedMemory['title'] . " (ongoing)";
+    } else {
+        $formattedMemory['enddate'] = date('Y-m-d H:i:s', $memory->end_date);
+    }
+    
     $formattedMemory['link']        = $memory->getURL();
     $formattedMemory['importance']  = $memory->importance;
     $formattedMemory['icon']        = 'triangle_orange.png';
