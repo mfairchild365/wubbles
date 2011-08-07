@@ -40,6 +40,17 @@ $(function() {
             $( "#importanceValue" ).val(ui.value);
         }
     });
+
+    $('#ongoing').bind('click', function() {
+        if ($('#ongoing').is(':checked')) {
+            $('#end_date').hide();
+            $('#end_date').val(0);
+            return;
+        }
+
+        $('#end_date').datepicker("setDate" , 'yy-mm-dd');
+        $('#end_date').show();
+    });
   
 });
 </script>
@@ -61,7 +72,8 @@ $(function() {
                     </li>
                     <li>
                         <label for="subject">End Date</label>
-                        <input type="text" class='datepicker' name="end_date" value="<?php echo date('Y-m-d', get_var('end_date', $context));;?>"/>
+                        <input type="checkbox" id='ongoing' name="ongoing" value="0" />Ongoing<br />
+                        <input type="text" class='datepicker' id='end_date' name="end_date" value="<?php echo date('Y-m-d', get_var('end_date', $context));;?>"/>
                     </li>
                     <li>
                         <label for="details">Details</label>

@@ -33,7 +33,7 @@ class Wub_Memory_Edit extends Wub_Memory
             throw new Exception("no start date provided");
         }
         
-        if (!isset($_POST['end_date']) || empty($_POST['end_date'])) {
+        if (!isset($_POST['end_date'])) {
             throw new Exception("no end date provided");
         }
         
@@ -47,10 +47,15 @@ class Wub_Memory_Edit extends Wub_Memory
         
         $_POST['start_date'] = strtotime($_POST['start_date']);
         
-        $_POST['end_date'] = strtotime($_POST['end_date']);
         
-        if ($_POST['end_date'] < $_POST['start_date']) {
-            throw new Exception("That makes no sense silly.  Make sure you have the dates right.");
+        if ($_POST['end_date'] == 0) {
+            $this->end_date = 0;
+        } else {
+            $_POST['end_date'] = strtotime($_POST['end_date']);
+            
+            if ($_POST['end_date'] < $_POST['start_date']) {
+                throw new Exception("That makes no sense silly.  Make sure you have the dates right.");
+            }
         }
         
         $options['continueURL'] = 'view';
