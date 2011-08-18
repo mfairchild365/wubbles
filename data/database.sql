@@ -119,6 +119,30 @@ CREATE  TABLE IF NOT EXISTS `wubbles`.`notifications` (
 ENGINE = InnoDB;
 
 
+-- -----------------------------------------------------
+-- Table `wubbles`.`groups`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `wubbles`.`groups` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `owner_id` INT NULL ,
+  `date_created` INT NULL ,
+  `date_edited` INT NULL ,
+  `name` VARCHAR(100) NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `wubbles`.`group_members`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `wubbles`.`group_members` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `group_id` INT NULL ,
+  `account_id` INT NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
+
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
