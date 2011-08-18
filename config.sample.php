@@ -15,6 +15,9 @@ set_include_path(
 
 ini_set('display_errors', true);
 
+//Session life in seconds.
+ini_set("session.gc_maxlifetime", 7200); 
+
 error_reporting(E_ALL);
 
 Wub_Controller::$url = 'http://localhost/wubbles/';
