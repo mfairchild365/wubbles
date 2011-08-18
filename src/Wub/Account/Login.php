@@ -9,19 +9,19 @@ class Wub_Account_Login extends Wub_Account
     function login($options)
     {
         if (!isset($options['email'], $options['password'])) {
-            throw new Exception("invalid email address or password");
+            throw new Exception("invalid email address or password", 400);
             return false;
         }
         
         if (!$account = $this->getByAnyField('Wub_Account', 'email', $options['email'], "password = '".sha1($options['password'])."'")) {
             if (!$account = $this->getByAnyField('Wub_Account', 'username', $options['email'], "password = '".sha1($options['password'])."'")) {
-                throw new Exception("Could not retrieve account, please make sure the password is correct.");
+                throw new Exception("Could not retrieve account, please make sure the password is correct.", 400);
             }
         }
         
         if (empty($account->activated) || !$account->activated) {
             $account->sendActivationCode();
-            throw new Exception("You must activate your account before you can log in.  Please check your email for an activation link.  We sent the email from " . Wub_Controller::$emailAddress);
+            throw new Exception("You must activate your account before you can log in.  Please check your email for an activation link.  We sent the email from " . Wub_Controller::$emailAddress, 403);
         }
         
         //Set the id.

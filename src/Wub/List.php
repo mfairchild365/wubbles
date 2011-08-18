@@ -27,11 +27,11 @@ abstract class Wub_List extends LimitIterator implements Countable
         $this->options = $this->options + $this->getDefaultOptions();
         
         if (!isset($this->options['listClass'])) {
-            Throw New Exception("No List Class was set");
+            Throw New Exception("No List Class was set", 500);
         }
         
         if (!isset($this->options['itemClass'])) {
-            Throw New Exception("No Item Class was set");
+            Throw New Exception("No Item Class was set", 500);
         }
         
         if (!isset($this->options['array'])) {
@@ -66,7 +66,7 @@ abstract class Wub_List extends LimitIterator implements Countable
     public static function getBySql(array $options) {
         
         if (!isset($options['sql'])) {
-            throw new exception("options['sql'] was not set!");
+            throw new exception("options['sql'] was not set!", 500);
         }
         
         $mysqli           = Wub_Controller::getDB();
@@ -83,7 +83,7 @@ abstract class Wub_List extends LimitIterator implements Countable
         }
         
         if (!isset($options['listClass'], $options['itemClass'])) {
-            throw new Exception("options['listClass'] or options['itemClass'] were not set!");
+            throw new Exception("options['listClass'] or options['itemClass'] were not set!", 500);
         }
         
         return new $options['listClass']($options);

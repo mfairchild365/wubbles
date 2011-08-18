@@ -29,7 +29,7 @@ class Wub_Notification extends Wub_Record implements Wub_Permissionable
         }
         
         if (!$class = $this->getByID($options['id'])) {
-            throw new Exception("Could not find that");
+            throw new Exception("Could not find that", 400);
         }
         
         $this->synchronizeWithArray($class->toArray());
@@ -129,7 +129,7 @@ class Wub_Notification extends Wub_Record implements Wub_Permissionable
             Wub_Controller::redirect(Wub_Controller::$url . "success?for=".$this->getTable()."_delete");
         }
         
-        throw new Exception("You do not have permission to delete this.");
+        throw new Exception("You do not have permission to delete this.", 401);
     }
     
     function sendEmail()
@@ -198,7 +198,7 @@ class Wub_Notification extends Wub_Record implements Wub_Permissionable
     function handleDelete() {
         if (isset($_POST['action']) && $_POST['action'] == 'delete') {
             if (!$this->canDelete()) {
-                throw new Exception("You do not have permission to delete this.");
+                throw new Exception("You do not have permission to delete this.", 401);
             }
             
             $this->delete();

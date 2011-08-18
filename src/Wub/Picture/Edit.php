@@ -6,7 +6,7 @@ class Wub_Picture_Edit extends Wub_Picture
         Wub_Controller::requireLogin();
         
         if (!isset($options['memory_id'])) {
-            throw new Exception("No memory ID was passed!");
+            throw new Exception("No memory ID was passed!", 400);
         }
         
         $this->memory_id = $options['memory_id'];
@@ -18,7 +18,7 @@ class Wub_Picture_Edit extends Wub_Picture
     {
         //Make sure everything is filled out.
         if (!isset($_POST['title']) || empty($_POST['title'])) {
-            throw new Exception("No title provided");
+            throw new Exception("No title provided", 400);
         }
         
         if (!isset($_POST['caption']) || empty($_POST['caption'])) {
@@ -50,11 +50,11 @@ class Wub_Picture_Edit extends Wub_Picture
                     break;
                 
             }
-            throw new Exception("There was an error uploading your file: " . $message);
+            throw new Exception("There was an error uploading your file: " . $message, 400);
         }
         
         if ($_FILES['picture']['size'] > 5242880) {
-            throw new Exception("The file is too large.");
+            throw new Exception("The file is too large.", 400);
         }
         
         switch ($_FILES['picture']['type']) {
@@ -79,11 +79,11 @@ class Wub_Picture_Edit extends Wub_Picture
         $this->path = $filename;
         
         if (file_exists($this->path)) {
-            throw new Exception("That file already exists!");
+            throw new Exception("That file already exists!", 500);
         }
         
         if (!move_uploaded_file($_FILES['picture']['tmp_name'], Wub_Controller::$uploadDir . $filename)) {
-            throw new Exception("Failed to move the file on the server!");
+            throw new Exception("Failed to move the file on the server!", 500);
         }
         
         //render the image so that its a little easier on the filesystem.

@@ -4,17 +4,17 @@ class Wub_SharedMemory_MultiEdit extends Wub_SharedMemory
     function __construct($options = array())
     {
         if (!isset($options['memory_id'])) {
-            throw new Exception("You must select a memory!");
+            throw new Exception("You must select a memory!", 400);
         }
         
         $this->memory_id = $options['memory_id'];
         
         if (!$memory = Wub_Memory::getByID($options['memory_id'])) {
-            throw new Exception("Could not find that memory!");
+            throw new Exception("Could not find that memory!", 400);
         }
         
         if (!$this->getMemory()->canEdit()) {
-            throw new Exception("You do not have permission to share this.");
+            throw new Exception("You do not have permission to share this.", 401);
         }
         
         parent::__construct($options);
@@ -22,7 +22,6 @@ class Wub_SharedMemory_MultiEdit extends Wub_SharedMemory
     
     function handlePost($options = array())
     {
-        print_r($_POST);
         $sharedWith = array();
         foreach (Wub_SharedMemory_List::getByMemory($this->memory_id) as $shared) {
             $sharedWith[] = $shared->account_id;

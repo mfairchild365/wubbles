@@ -11,7 +11,7 @@ class Wub_Friendship_List extends Wub_List
         Wub_Controller::requireLogin();
         
         if (!isset($options['account_id'])) {
-            throw new Exception("No account specified.", 404);
+            throw new Exception("No account specified.", 400);
         }
         
         $options['returnArray'] = true;

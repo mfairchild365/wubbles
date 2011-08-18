@@ -10,7 +10,7 @@ class Wub_Account_FriendRequest extends Wub_Account
         $this->password = NULL;
         
         if (Wub_Controller::getAccount()->id == $this->id) {
-            throw new Exception("You can not preform this action on yourself");
+            throw new Exception("You can not preform this action on yourself", 400);
         }
         
         switch($options['type']) {
@@ -25,7 +25,7 @@ class Wub_Account_FriendRequest extends Wub_Account
                 break;
             case 'block':
             default:
-                throw new Exception("Unknown type of friend request was sent.", 404);
+                throw new Exception("Unknown type of friend request was sent.", 500);
         }
     }
     
@@ -34,16 +34,16 @@ class Wub_Account_FriendRequest extends Wub_Account
         if ($friendship = Wub_Friendship::getFriendship(Wub_Controller::getAccount()->id, $this->id)) {
             switch ($friendship->status) {
                 case 'sent':
-                    throw new Exception("A request has already been sent.  Please wait for the chap to respond.");
+                    throw new Exception("A request has already been sent.  Please wait for the chap to respond.", 400);
                     break;
                 case 'accepted':
-                    throw new Exception("You are already friends with this person, silly.");
+                    throw new Exception("You are already friends with this person, silly.", 400);
                     break;
                 case 'blocked':
-                    throw new Exception("You can not friend request this person.");
+                    throw new Exception("You can not friend request this person.", 403);
                     break;
                 default:
-                    throw new Exception("You can not friend request this person.");
+                    throw new Exception("You can not friend request this person.", 403);
             }
         }
         
@@ -55,7 +55,7 @@ class Wub_Account_FriendRequest extends Wub_Account
         $friendship->status      = "sent";
         
         if (!$friendship->save()) {
-            throw new Exception("There was an error saving.");
+            throw new Exception("There was an error saving.", 500);
         }
         
         Wub_Controller::redirect(Wub_Controller::$url . 'success?for=friendship_sent');
@@ -64,15 +64,15 @@ class Wub_Account_FriendRequest extends Wub_Account
     function acceptFriendRequest()
     {
         if (!$friendship = Wub_Friendship::getFriendship(Wub_Controller::getAccount()->id, $this->id)) {
-            throw new Exception("Friend request not found.");
+            throw new Exception("Friend request not found.", 400);
         }
         
         if ($friendship->reciever_id != Wub_Controller::getAccount()->id) {
-            throw new Exception("You can only accept this if you are the reciever, silly.");
+            throw new Exception("You can only accept this if you are the reciever, silly.", 400);
         }
         
         if ($friendship->status != 'sent') {
-            throw new Exception("You can not accept this request");
+            throw new Exception("You can not accept this request", 400);
         }
         
         $friendship->status = 'accepted';
@@ -85,15 +85,15 @@ class Wub_Account_FriendRequest extends Wub_Account
     function rejectFriendRequest()
     {
         if (!$friendship = Wub_Friendship::getFriendship(Wub_Controller::getAccount()->id, $this->id)) {
-            throw new Exception("Friend request not found.");
+            throw new Exception("Friend request not found.", 400);
         }
         
         if ($friendship->reciever_id != Wub_Controller::getAccount()->id) {
-            throw new Exception("You can only reject this if you are the reciever, silly.");
+            throw new Exception("You can only reject this if you are the reciever, silly.", 400);
         }
         
         if ($friendship->status != 'sent') {
-            throw new Exception("You can not reject this request");
+            throw new Exception("You can not reject this request", 400);
         }
         
         $friendship->status = 'rejected';

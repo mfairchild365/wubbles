@@ -274,7 +274,7 @@ class Wub_Controller
     public static function setObjectFromArray(&$object, $values)
     {
         if (!isset($object)) {
-            throw new Exception('No object passed!');
+            throw new Exception('No object passed!', 400);
         }
         foreach (get_object_vars($object) as $key=>$default_value) {
             if (isset($values[$key]) && !empty($values[$key])) {

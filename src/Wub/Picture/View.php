@@ -6,11 +6,11 @@ class Wub_Picture_View extends Wub_Picture implements Wub_Commentable
         parent::__construct($options);
         
         if ($options['memory_id'] != $this->memory_id) {
-            throw new Exception("That picture does not belong to this memory.");
+            throw new Exception("That picture does not belong to this memory.", 400);
         }
         
         if (!$this->canView()) {
-            throw new Exception("You do not have permission to view this.");
+            throw new Exception("You do not have permission to view this.", 401);
         }
     }
 }

@@ -11,48 +11,48 @@ class Wub_Account_Edit extends Wub_Account
     {
         //Check emails
         if($_POST['email'] != $_POST['email2']) {
-            throw new Exception("Emails do not match");
+            throw new Exception("Emails do not match", 400);
         } 
         
         //check passwords
         if(empty($this->id) && $_POST['password'] != $_POST['password2']) {
-            throw new Exception("Passwords do not match");
+            throw new Exception("Passwords do not match", 400);
         }
         
         if (!isset($_POST['firstname']) || empty($_POST['firstname'])) {
-            throw new Exception("You must fill out your name");
+            throw new Exception("You must fill out your name", 400);
         }
         
         if (!isset($_POST['lastname']) || empty($_POST['lastname'])) {
-            throw new Exception("You must fill out your name");
+            throw new Exception("You must fill out your name", 400);
         }
         
         if (!isset($_POST['email']) || empty($_POST['email'])) {
-            throw new Exception("You must fill out your email");
+            throw new Exception("You must fill out your email", 400);
         }
         
         if (empty($this->id) && (!isset($_POST['password']) || empty($_POST['password']))) {
-            throw new Exception("You must fill out your password");
+            throw new Exception("You must fill out your password", 400);
         }
         
         if (!isset($_POST['username']) || empty($_POST['username'])) {
-            throw new Exception("You must fill out your username");
+            throw new Exception("You must fill out your username", 400);
         }
         
         if (!isset($_POST['email_notifications']) && in_array($_POST['email_notifications'], array(1,0))) {
-            throw new Exception("You must select your email notification settings");
+            throw new Exception("You must select your email notification settings", 400);
         }
         
         if ((empty($this->id) || $_POST['email'] != $this->email) && Wub_Account::getByAnyField('Wub_Account', 'email', $_POST['email'])){
-            throw new Exception("This email address is already in use.");
+            throw new Exception("This email address is already in use.", 400);
         }
         
         if ((empty($this->id) || $_POST['username'] != $this->username) && Wub_Account::getByAnyField('Wub_Account', 'username', $_POST['username'])){
-            throw new Exception("This username is already in use.");
+            throw new Exception("This username is already in use.", 400);
         }
         
         if (!isset($_POST['timezone']) || empty($_POST['timezone'])) {
-            throw new Exception("You must select your timezone");
+            throw new Exception("You must select your timezone", 400);
         }
         
         $this->email_notifications = 1;
@@ -80,7 +80,7 @@ class Wub_Account_Edit extends Wub_Account
                                             $_POST["recaptcha_response_field"]);
             
             if (!$resp->is_valid) {
-                throw new Exception("Captcha not valid, please try again.");
+                throw new Exception("Captcha not valid, please try again.", 400);
             }
         }
         

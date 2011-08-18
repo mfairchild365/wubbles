@@ -9,7 +9,7 @@ class Wub_Account_EditPassword extends Wub_Account
              Wub_Controller::requireLogin();
              
              if (!$this->canEdit()) {
-                 throw new Exception("You do not have permission to edit this!");
+                 throw new Exception("You do not have permission to edit this!", 401);
              }
          }
     }
@@ -18,11 +18,11 @@ class Wub_Account_EditPassword extends Wub_Account
     {
         //check passwords
         if($_POST['password'] != $_POST['password2']) {
-            throw new Exception("Passwords do not match");
+            throw new Exception("Passwords do not match", 400);
         }
         
         if (!isset($_POST['password']) || empty($_POST['password'])) {
-            throw new Exception("You must fill out your password");
+            throw new Exception("You must fill out your password", 400);
         }
         
         $this->password = sha1($_POST['password']);

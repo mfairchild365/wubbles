@@ -6,11 +6,11 @@ class Wub_Timeline
     function __construct($options = array())
     {
         if (!isset($options['account_id'])) {
-            throw new Exception("You must select an account.");
+            throw new Exception("You must select an account.", 400);
         }
         
         if (!$this->account = Wub_Account::getByID($options['account_id'])) {
-            throw new Exception("That account does not exist!");
+            throw new Exception("That account does not exist!", 400);
         }
     }
     

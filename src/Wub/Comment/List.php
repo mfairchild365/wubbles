@@ -9,17 +9,17 @@ class Wub_Comment_List extends Wub_List
         }
         
         if (!isset($options['class']) || empty($options['class'])) {
-            throw new Exception("No reference class provided!");
+            throw new Exception("No reference class provided!", 400);
         }
         
         if (!isset($options['reference_id']) || empty($options['reference_id'])) {
-            throw new Exception("No reference ID provided!");
+            throw new Exception("No reference ID provided!", 400);
         }
         
         $class = Wub_Record::getByAnyField($options['class'], 'id', (int)$options['reference_id']);
         
         if (!$class->canView()) {
-            throw new Exception("You do not have permission to view this.");
+            throw new Exception("You do not have permission to view this.", 400);
         }
         
         $options['returnArray'] = true;

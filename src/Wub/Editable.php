@@ -24,7 +24,7 @@ abstract class Wub_Editable extends Wub_Record implements Wub_Permissionable
         }
         
         if (!$class = $this->getByID($options['id'])) {
-            throw new Exception("Could not find that");
+            throw new Exception("Could not find that", 400);
         }
         
         $this->synchronizeWithArray($class->toArray());
@@ -38,7 +38,7 @@ abstract class Wub_Editable extends Wub_Record implements Wub_Permissionable
         Wub_Controller::requireLogin();
         
         if (!$this->canEdit()) {
-            throw new Exception("You do not have permission to edit this.");
+            throw new Exception("You do not have permission to edit this.", 401);
         }
     }
     
@@ -46,11 +46,11 @@ abstract class Wub_Editable extends Wub_Record implements Wub_Permissionable
     {
         //check if the id was changed via post.  This is a big no no.
         if (isset($this->id) && !empty($this->id) && ($this->id != $_POST['id'])) {
-            throw new Exception("Id was changed in POST, record not saved.");
+            throw new Exception("Id was changed in POST, record not saved.", 400);
         }
         
         if (!$this->canEdit()) {
-            throw new Exception("You do not have permission to edit this!");
+            throw new Exception("You do not have permission to edit this!", 401);
         }
         
         $this->synchronizeWithArray($_POST);
@@ -77,7 +77,7 @@ abstract class Wub_Editable extends Wub_Record implements Wub_Permissionable
         }
         
         if (!$this->save()) {
-            throw new Exception("There was an error saving this.");
+            throw new Exception("There was an error saving this.", 500);
         }
         
         $redirectURL = Wub_Controller::$url.'success?for='.$this->getTable().'&saveType=' . $saveType;
@@ -167,7 +167,7 @@ abstract class Wub_Editable extends Wub_Record implements Wub_Permissionable
     function handleDelete() {
         if (isset($_POST['action']) && $_POST['action'] == 'delete') {
             if (!$this->canDelete()) {
-                throw new Exception("You do not have permission to delete this.");
+                throw new Exception("You do not have permission to delete this.", 401);
             }
             
             $this->delete();

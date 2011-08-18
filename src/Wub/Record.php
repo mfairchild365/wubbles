@@ -279,7 +279,7 @@ abstract class Wub_Record
             return self::getByAnyField($class, $field, $args[0], $whereAdd);
             
         }
-        throw new Exception('Invalid static method called.');
+        throw new Exception('Invalid static method called.', 500);
     }
 
     public static function getByAnyField($class, $field, $value, $whereAdd = '')
