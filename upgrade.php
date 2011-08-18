@@ -44,3 +44,14 @@ exec_sql($db, "ALTER TABLE `memories`  ADD `end_date` INT(15) NULL DEFAULT 0", "
 exec_sql($db, "ALTER TABLE `memories`  ADD `importance` INT(3) DEFAULT 1", "Adding importance", true);
 exec_sql($db, "ALTER TABLE `accounts`  ADD `activation_code` VARCHAR(100) DEFAULT 0", "Adding activation", true);
 exec_sql($db, "ALTER TABLE `accounts`  ADD `timezone` VARCHAR(100) DEFAULT 'America/Chicago'", "Adding timezone", true);
+
+foreach(Wub_Account_List::getAllOrderByLastName() as $account) {
+    if (!Wub_Group::getByNameAndAccount('Friends', $account->id)) {
+        $group = new Wub_Group();
+        $group->name         = 'Friends';
+        $group->owner_id     = $account->id;
+        $group->date_created = time();
+        $group->date_edited  = time();
+        $group->save();
+    }
+}

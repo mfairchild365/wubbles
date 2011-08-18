@@ -1,5 +1,5 @@
 <?php
-class Wub_GroupMember extends Wub_Record
+class Wub_Group_Member extends Wub_Record
 {
     public $id;
     
