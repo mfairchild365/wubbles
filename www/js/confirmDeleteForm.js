@@ -2,6 +2,7 @@ function initDeleteForms()
 {
 	var options = { 
         success: handleDeleteResponse,  // post-submit callback 
+        error: handleDeleteResponse,
     }
 	
     if ($('.deleteForm').length > 0) {

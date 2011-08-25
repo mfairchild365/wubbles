@@ -57,7 +57,8 @@
     {
         if ($('.ajaxForm').length > 0) {
             var options = { 
-                    success: showResponse  // post-submit callback 
+                    success: showResponse,  // post-submit callback 
+                    error: showResponse
             }
             
             $('.ajaxForm').ajaxForm(options); 
@@ -66,6 +67,9 @@
     
     function showResponse(responseText, statusText, xhr, $form)
     {
+        if (typeof(responseText) == "object") {
+            responseText = responseText.responseText;
+        }
         /*
         This is kinda tricky.  We have to grab the content, which is pure html (html tags and all)
         and get the #maincontent area.  THEN we have to set the contents of the dialog-message to
